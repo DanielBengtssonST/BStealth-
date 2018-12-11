@@ -33,6 +33,14 @@ public class EnemySight : MonoBehaviour
         DrawFieldOfView();
     }
 
+    public Vector3 DirFromAngle(float angleDegrees, bool globalAngle)
+    {
+        if (!globalAngle)
+        {
+            angleDegrees += transform.eulerAngles.y;
+        }
+        return new Vector3(Mathf.Sin(angleDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleDegrees * Mathf.Deg2Rad));
+    }
 
     IEnumerator FindPlayerWithDelay(float delay)
     {
@@ -61,16 +69,7 @@ public class EnemySight : MonoBehaviour
             }
         }
     }
-
-    public Vector3 DirFromAngle(float angleDegrees, bool globalAngle)
-    {
-        if (!globalAngle)
-        {
-            angleDegrees += transform.eulerAngles.y;
-        }
-        return new Vector3(Mathf.Sin(angleDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleDegrees * Mathf.Deg2Rad));
-    }
-
+    
     void DrawFieldOfView()
     {
         int rayCount = Mathf.RoundToInt(viewAngle * meshResolution);
@@ -125,8 +124,6 @@ public class EnemySight : MonoBehaviour
         viewMesh.triangles = triangles;
         viewMesh.RecalculateNormals();
     }
-
-
 
     ViewCastInfo ViewCast(float globalAngle)
     {
