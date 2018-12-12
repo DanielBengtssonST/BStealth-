@@ -72,12 +72,15 @@ public class EnemySight : MonoBehaviour
                     if (!shooting)
                     {
                         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-
                         StartCoroutine("ShootPlayerDelay", shotDelay);
+                        GetComponent<AImovement>().foundPlayer = true;
+
                     }
+                    return;
                 }
             }
         }
+        GetComponent<AImovement>().foundPlayer = false;
     }
 
     IEnumerator ShootPlayerDelay(float delay)
