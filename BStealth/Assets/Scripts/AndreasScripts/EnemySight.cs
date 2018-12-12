@@ -17,6 +17,12 @@ public class EnemySight : MonoBehaviour
     public float edgeDstThreshold;
 
 
+    public float findPlayerDelay = .2f;
+    public float shotDelay = 1f;
+    bool shooting;
+
+    public GameObject bulletPrefab;
+
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
 
@@ -25,7 +31,7 @@ public class EnemySight : MonoBehaviour
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
-        StartCoroutine("FindPlayerWithDelay", .2f);
+        StartCoroutine("FindPlayerWithDelay", findPlayerDelay);
     }
 
     private void LateUpdate()
@@ -63,13 +69,25 @@ public class EnemySight : MonoBehaviour
                 float distToPlayer = Vector3.Distance(transform.position, player.position);
                 if (!Physics.Raycast(transform.position, dirToPlayer, distToPlayer, obstacleMask))
                 {
-                    //Detected
-                    print("Detected");
+                    if (!shooting)
+                    {
+                        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+                        StartCoroutine("ShootPlayerDelay", shotDelay);
+                    }
                 }
             }
         }
     }
-    
+
+    IEnumerator ShootPlayerDelay(float delay)
+    {
+        shooting = true;
+        yield return new WaitForSeconds(delay);
+        shooting = false;
+    }
+
+
     void DrawFieldOfView()
     {
         int rayCount = Mathf.RoundToInt(viewAngle * meshResolution);

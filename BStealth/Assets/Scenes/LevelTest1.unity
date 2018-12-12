@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 929559476}
   m_Layer: 9
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -520,11 +520,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 929559475}
   m_LocalRotation: {x: -0, y: 0.24412282, z: -0, w: 0.9697444}
-  m_LocalPosition: {x: 0.45985603, y: 0.1765356, z: -0.8456569}
+  m_LocalPosition: {x: 0.45985603, y: 0, z: -0.8456569}
   m_LocalScale: {x: 0.71442026, y: 1, z: 7.3279123}
   m_Children: []
   m_Father: {fileID: 1938777218}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 28.26, z: 0}
 --- !u!1 &1003287244
 GameObject:
@@ -582,6 +582,10 @@ MonoBehaviour:
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
+  findPlayerDelay: 0.2
+  shotDelay: 1
+  bulletPrefab: {fileID: 1653128700237598, guid: 85677db5d280f8a4bb2593a6c40a349a,
+    type: 2}
   viewMeshFilter: {fileID: 1251885568}
 --- !u!65 &1003287247
 BoxCollider:
@@ -665,7 +669,7 @@ GameObject:
   - component: {fileID: 1176065695}
   m_Layer: 9
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -677,11 +681,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1176065693}
   m_LocalRotation: {x: 0, y: 0.97553456, z: 0, w: 0.21984623}
-  m_LocalPosition: {x: 4.27, y: 0.1765356, z: -1.82}
+  m_LocalPosition: {x: 4.27, y: 0, z: -1.82}
   m_LocalScale: {x: 0.7144223, y: 0.99999994, z: 1.7}
   m_Children: []
   m_Father: {fileID: 1938777218}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 154.6, z: 0}
 --- !u!65 &1176065695
 BoxCollider:
@@ -926,6 +930,10 @@ MonoBehaviour:
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
+  findPlayerDelay: 0.2
+  shotDelay: 1
+  bulletPrefab: {fileID: 1653128700237598, guid: 85677db5d280f8a4bb2593a6c40a349a,
+    type: 2}
   viewMeshFilter: {fileID: 539042098}
 --- !u!65 &1189504069
 BoxCollider:
@@ -934,7 +942,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1189504066}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1081,7 +1089,7 @@ GameObject:
   - component: {fileID: 1256729179}
   m_Layer: 9
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1147,11 +1155,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1256729178}
   m_LocalRotation: {x: -0, y: 0.19979553, z: -0, w: 0.97983766}
-  m_LocalPosition: {x: 5.1898556, y: 0.1765356, z: 0.9043431}
+  m_LocalPosition: {x: 5.1898556, y: 0, z: 0.9043431}
   m_LocalScale: {x: 0.7, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 1938777218}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 23.05, z: 0}
 --- !u!1 &1555355198
 GameObject:
@@ -1167,7 +1175,7 @@ GameObject:
   - component: {fileID: 1555355199}
   m_Layer: 9
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1247,12 +1255,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1555355198}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.6255674, y: 0, z: -3.27876}
+  m_LocalScale: {x: 0.43232027, y: 0.86464053, z: 0.43232027}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1938777218}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1767847525
 GameObject:
@@ -1364,6 +1372,10 @@ MonoBehaviour:
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
+  findPlayerDelay: 0.2
+  shotDelay: 1
+  bulletPrefab: {fileID: 1653128700237598, guid: 85677db5d280f8a4bb2593a6c40a349a,
+    type: 2}
   viewMeshFilter: {fileID: 218915766}
 --- !u!114 &1767847531
 MonoBehaviour:
@@ -1405,6 +1417,7 @@ Transform:
   m_LocalPosition: {x: -4.1401, y: 0.91993, z: 4.0841}
   m_LocalScale: {x: 2.3131, y: 2.3131, z: 2.3131}
   m_Children:
+  - {fileID: 1555355203}
   - {fileID: 1256729182}
   - {fileID: 929559479}
   - {fileID: 1176065694}
