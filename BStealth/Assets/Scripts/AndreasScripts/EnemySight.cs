@@ -73,14 +73,13 @@ public class EnemySight : MonoBehaviour
                     {
                         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
                         StartCoroutine("ShootPlayerDelay", shotDelay);
-                        GetComponent<AImovement>().foundPlayer = true;
-
+                        StartCoroutine("FoundPlayer", 1);
                     }
                     return;
                 }
             }
         }
-        GetComponent<AImovement>().foundPlayer = false;
+
     }
 
     IEnumerator ShootPlayerDelay(float delay)
@@ -88,6 +87,12 @@ public class EnemySight : MonoBehaviour
         shooting = true;
         yield return new WaitForSeconds(delay);
         shooting = false;
+    }
+    IEnumerator FoundPlayer(float chaseTime)
+    {
+        GetComponent<AImovement>().foundPlayer = true;
+        yield return new WaitForSeconds(chaseTime);
+        GetComponent<AImovement>().foundPlayer = false;
     }
 
 
