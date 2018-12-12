@@ -11,14 +11,17 @@ public class AImovement : MonoBehaviour {
     NavMeshAgent agent;
     [SerializeField]
     bool foundPlayer = false;
-    [SerializeField]
     GameObject thePlayer;
+    [SerializeField]
+    float normalSpeed = 3.5f;
+    [SerializeField]
+    float chaseSpeed = 8;
 
 	// Use this for initialization
 	void Start () {
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
-
+        thePlayer = GameObject.FindGameObjectWithTag("Player");
         GoToNextWayPoint();
 	}
 	
@@ -36,11 +39,13 @@ public class AImovement : MonoBehaviour {
         {
             agent.destination = wayPoints[destPoint].position; //moves to the next waypoint
             destPoint = (destPoint + 1) % wayPoints.Length; //Cykles through the array
+            agent.speed = normalSpeed;
         }
     }
 
     void GoToPlayer()
     {
         agent.destination = new Vector3(thePlayer.transform.position.x, 0, thePlayer.transform.position.z);
+        agent.speed = chaseSpeed;
     }
 }
