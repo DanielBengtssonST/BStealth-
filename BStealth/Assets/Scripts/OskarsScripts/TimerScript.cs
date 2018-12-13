@@ -22,7 +22,7 @@ public class TimerScript : MonoBehaviour {
 
     IEnumerator TheTimer()
     {
-        for(float f = time; f >= 0; f -= (1f/60f))
+		for(float f = time; f >= 0; f -= (1f/60f) * Time.timeScale)
         {
             textUI.text = f.ToString("F"); //Changes the ui text to the current time
             yield return null;
