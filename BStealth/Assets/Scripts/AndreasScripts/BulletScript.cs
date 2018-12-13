@@ -12,14 +12,15 @@ public class BulletScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         GetComponent<Rigidbody>().AddForce((player.transform.position - transform.position)*shotSpeed,ForceMode.VelocityChange);
-        StartCoroutine("DestroyMe", shotLife);
+		Destroy (gameObject, shotLife);
+//        StartCoroutine("DestroyMe", shotLife);
     }
 
-    IEnumerator DestroyMe(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
-    }
+//    IEnumerator DestroyMe(float delay)
+//    {
+//        yield return new WaitForSeconds(delay);
+//        Destroy(gameObject);
+//    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,12 +29,13 @@ public class BulletScript : MonoBehaviour
             print("DU BLÄ TRÄFFAD!");
           
 			PenaltyManager.instance.CallPenalty (1);
-			Destroy(gameObject);
+//			Destroy(gameObject);
         }
-        else if (other.tag == "Wall")
-        {
-            Destroy(gameObject);
-        }
+//        else if (other.tag == "Wall")
+//        {
+//            Destroy(gameObject);
+//        }
+		Destroy(gameObject);
        
-        }
+	}
 }

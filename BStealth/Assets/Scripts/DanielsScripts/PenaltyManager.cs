@@ -16,12 +16,19 @@ public class PenaltyManager : MonoBehaviour {
 		DontDestroyOnLoad (this);
 	}
 
-	[SerializeField] string[] penaltyNames;
+	[SerializeField] string[] penaltyNames = new string[]{"NoPenalty","TakeDamage","LoseLife","Restart","Gameover"};
 	CharacterStats playerStats;
 
 	void Start(){
 
 		playerStats = GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ();
+
+//		penaltyNames[0] = "NoPenalty";
+//		penaltyNames[1] = "TakeDamage";
+//		penaltyNames[2] = "LoseLife";
+//		penaltyNames[3] = "Restart";
+//		penaltyNames[4] = "GameOver";
+
 	}
 
 
