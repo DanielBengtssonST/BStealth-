@@ -6,10 +6,8 @@ public class CharacterStats : MonoBehaviour {
 
 	public List<Stat> stats;
 
-
 	void Start(){
 
-		stats [0].ChangeValue (100);
 	}
 
 	public Stat FindStat(string _statName){

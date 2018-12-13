@@ -71,7 +71,8 @@ public class EnemySight : MonoBehaviour
                 {
                     if (!shooting)
                     {
-                        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+						GameObject bullet = Instantiate(bulletPrefab, transform.position + (transform.forward*0.5f), transform.rotation);
+						bullet.GetComponent<BulletScript> ().SetShooter (gameObject);
                         StartCoroutine("ShootPlayerDelay", shotDelay);
                         StartCoroutine("FoundPlayer", 1);
                     }
