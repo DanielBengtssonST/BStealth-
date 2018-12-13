@@ -16,6 +16,14 @@ public class Stat {
 	 	if (curValue <= 0) {
 
 			curValue = 0;
+
+			Debug.Log (name + " reached " + curValue);
+			PlayManager.instance.PauseGame (true);
 		}
+	}
+
+	public string getName(){
+
+		return name;
 	}
 }

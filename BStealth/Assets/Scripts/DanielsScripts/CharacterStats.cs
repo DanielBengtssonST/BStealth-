@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour {
 
-	public Stat[] stats;
+	public List<Stat> stats;
 
 
 	void Start(){
@@ -12,4 +12,10 @@ public class CharacterStats : MonoBehaviour {
 		stats [0].changeValue (100);
 	}
 
+	public Stat FindStat(string _statName){
+
+		Debug.Log ("Looking for " + _statName);
+		return stats.Find (Stat => Stat.getName().Contains(_statName));
+
+	}
 }

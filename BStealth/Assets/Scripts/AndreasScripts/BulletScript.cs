@@ -7,6 +7,7 @@ public class BulletScript : MonoBehaviour
     GameObject player;
     public float shotSpeed;
     public float shotLife = 1;
+	public float damage = 1;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -25,7 +26,9 @@ public class BulletScript : MonoBehaviour
         if (other.tag == "Player")
         {
             print("DU BLÄ TRÄFFAD!");
-            Destroy(gameObject);
+          
+			other.gameObject.GetComponent<CharacterStats> ().FindStat ("HP").changeValue (-damage);
+			Destroy(gameObject);
         }
         else if (other.tag == "Wall")
         {
