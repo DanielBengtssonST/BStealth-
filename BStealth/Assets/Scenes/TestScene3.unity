@@ -887,7 +887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - name: HP
-    maxValue: 10
+    maxValue: 3
     curValue: 5
     depleated: 0
   - name: Lives
@@ -1423,7 +1423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textUI: {fileID: 1472085521}
-  time: 60
+  time: 59
 --- !u!4 &1649373158
 Transform:
   m_ObjectHideFlags: 0
@@ -1594,6 +1594,7 @@ MonoBehaviour:
   - TakeDamage
   - LoseLife
   - Restart
+  - GameOver
 --- !u!4 &2022023384
 Transform:
   m_ObjectHideFlags: 0
