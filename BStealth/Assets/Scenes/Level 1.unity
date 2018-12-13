@@ -16272,7 +16272,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2114085742}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7ec33330ab227c64b8c3376d0abd5d89, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -16350,6 +16350,6 @@ MonoBehaviour:
     curValue: 1
     depleated: 0
   - name: Lives
-    maxValue: 4
-    curValue: 4
+    maxValue: 1
+    curValue: 1
     depleated: 0
