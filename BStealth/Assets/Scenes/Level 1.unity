@@ -16351,6 +16351,6 @@ MonoBehaviour:
     curValue: 1
     depleated: 0
   - name: Lives
-    maxValue: 4
-    curValue: 4
+    maxValue: 1
+    curValue: 1
     depleated: 0
