@@ -42,6 +42,7 @@ public class AImovement : MonoBehaviour
             agent.destination = wayPoints[destPoint].position; //moves to the next waypoint
             destPoint = (destPoint + 1) % wayPoints.Length; //Cykles through the array
             agent.speed = normalSpeed;
+//			agent.stoppingDistance = 0;
         }
     }
 
@@ -49,5 +50,6 @@ public class AImovement : MonoBehaviour
     {
         agent.destination = new Vector3(thePlayer.transform.position.x, 0, thePlayer.transform.position.z);
         agent.speed = chaseSpeed;
+//		agent.stoppingDistance = 0;
     }
 }

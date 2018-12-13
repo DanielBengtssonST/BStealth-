@@ -14,8 +14,6 @@ public class CharacterStats : MonoBehaviour {
 
 	public Stat FindStat(string _statName){
 
-		Debug.Log ("Looking for " + _statName);
-		return stats.Find (Stat => Stat.getName().Contains(_statName));
-
+		return stats.Find (Stat => Stat.getName ().Contains (_statName));
 	}
 }
