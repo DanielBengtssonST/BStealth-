@@ -9,7 +9,7 @@ public class CharacterStats : MonoBehaviour {
 
 	void Start(){
 
-		stats [0].changeValue (100);
+		stats [0].ChangeValue (100);
 	}
 
 	public Stat FindStat(string _statName){

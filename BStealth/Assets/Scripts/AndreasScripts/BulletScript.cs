@@ -27,7 +27,7 @@ public class BulletScript : MonoBehaviour
         {
             print("DU BLÄ TRÄFFAD!");
           
-			other.gameObject.GetComponent<CharacterStats> ().FindStat ("HP").changeValue (-damage);
+			PenaltyManager.instance.CallPenalty (1);
 			Destroy(gameObject);
         }
         else if (other.tag == "Wall")

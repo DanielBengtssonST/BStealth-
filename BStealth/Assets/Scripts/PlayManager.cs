@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Pause & Scene reload
 public class PlayManager : MonoBehaviour {
 
 	public static PlayManager instance;

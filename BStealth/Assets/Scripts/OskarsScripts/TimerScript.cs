@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//
 public class TimerScript : MonoBehaviour {
 
     [SerializeField]
@@ -29,5 +30,6 @@ public class TimerScript : MonoBehaviour {
         }
         textUI.text = "0.00"; //timer sometimes ends att 0.02 so this just changes the text to always be 0.00
         print("time is upp boi"); //executes after timer 
+		PenaltyManager.instance.CallPenalty(4);
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Penalty management & List of possible penalites
 public class PenaltyManager : MonoBehaviour {
 
 	public static PenaltyManager instance;
@@ -15,13 +16,53 @@ public class PenaltyManager : MonoBehaviour {
 		DontDestroyOnLoad (this);
 	}
 
-	// Use this for initialization
-	void Start () {
-		
+	[SerializeField] string[] penaltyNames;
+	CharacterStats playerStats;
+
+	void Start(){
+
+		playerStats = GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+
+	public void CallPenalty(int _index){
+
+		Invoke (penaltyNames [_index], 0);
+	}
+
+	// List of penalties
+
+	// Index: 1
+	void TakeDamage(){
+
+		playerStats.FindStat ("HP").ChangeValue (-1);
+		if (playerStats.FindStat ("HP").depleated) {
+			CallPenalty (2);
+		}
+	}
+	//Index: 2
+	void LoseLife(){
+
+		playerStats.FindStat ("Lives").ChangeValue (-1);
+		if (playerStats.FindStat ("Lives").depleated) {
+			CallPenalty (3);
+		}
+	}
+	//Index: 3
+	void Restart(){
+
+		PlayManager.instance.ReloadScene ();
+	}
+	//Index: 4
+	void GameOver(){
+
+		Debug.Log ("GAME OVER");
+		PlayManager.instance.ReloadScene ();
+		PlayManager.instance.PauseGame (true);
+	}
+	//Index: 0
+	void NoPenalty(){
+
+		return;
 	}
 }

@@ -8,17 +8,22 @@ public class Stat {
 	[SerializeField] string name;
 	[SerializeField] float maxValue;
 	[SerializeField] float curValue;
+	public bool depleated;
 
-	public void changeValue(float _value){
+	public void ChangeValue(float _value){
 
 		curValue = Mathf.Min (curValue += _value, maxValue);
+		CheckValue ();
+	}
 
-	 	if (curValue <= 0) {
+	void CheckValue(){
+
+		if (curValue <= 0) {
 
 			curValue = 0;
-
-			Debug.Log (name + " reached " + curValue);
-			PlayManager.instance.PauseGame (true);
+			depleated = true;
+		} else {
+			depleated = false;
 		}
 	}
 
