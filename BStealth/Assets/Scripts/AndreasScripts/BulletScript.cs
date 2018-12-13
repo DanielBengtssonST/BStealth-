@@ -29,13 +29,14 @@ public class BulletScript : MonoBehaviour
             print("DU BLÄ TRÄFFAD!");
           
 			PenaltyManager.instance.CallPenalty (1);
-//			Destroy(gameObject);
+			Destroy(gameObject);
         }
-//        else if (other.tag == "Wall")
-//        {
-//            Destroy(gameObject);
-//        }
-		Destroy(gameObject);
+        else if (other.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+
+//		Destroy(gameObject);
        
 	}
 }
