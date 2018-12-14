@@ -17,24 +17,23 @@ public class PenaltyManager : MonoBehaviour {
 	}
 
 	CharacterStats playerStats;
-	[SerializeField] int curPenaltyMode = 0;
+
+
 	string[][] penaltyNamesList = new string[4][];
-
 	[SerializeField] string[] curPenaltyNames;
-
+	[SerializeField] int curPenaltyMode = 0;
 
 	void Start(){
 
 		playerStats = GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ();
 
-		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","Gameover"};
-		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty"};
-		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","Gameover"};
-		penaltyNamesList[3] = new string[]{"NoPenalty","Restart","NoPenalty","NoPenalty","NoPenalty"};
+		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","Gameover"};	//
+		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty"};	//Modern
+		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","Gameover"}; 	//Old
+		penaltyNamesList[3] = new string[]{"NoPenalty","Restart","NoPenalty","NoPenalty","NoPenalty"};	//Meatboy
+		penaltyNamesList[3] = new string[]{"NoPenalty","TakeDamage","GameOver","GameOver","GameOver"};	//Hardcore
 
 		curPenaltyNames = penaltyNamesList [curPenaltyMode];
-
-
 	}
 
 	public void CallPenalty(int _index){
