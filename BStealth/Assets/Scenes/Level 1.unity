@@ -1893,10 +1893,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 195670652}
-  - component: {fileID: 195670651}
   - component: {fileID: 195670650}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: _PlayManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1914,23 +1913,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playTime: {fileID: 0}
---- !u!114 &195670651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 195670649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819b4b791bdcfe343af10cb9467450b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  penaltyNames:
-  - NoPenalty
-  - TakeDamage
-  - LoseLife
-  - Restart
-  - Gameover
 --- !u!4 &195670652
 Transform:
   m_ObjectHideFlags: 0
@@ -12207,6 +12189,49 @@ Transform:
   m_Father: {fileID: 1662827454}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1810198338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1810198340}
+  - component: {fileID: 1810198339}
+  m_Layer: 0
+  m_Name: _PenaltyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1810198339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810198338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819b4b791bdcfe343af10cb9467450b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curPenaltyMode: 0
+  curPenaltyNames:
+  - 
+--- !u!4 &1810198340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810198338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -99.000015, z: -10.00001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1818575399
 Mesh:
   m_ObjectHideFlags: 0
@@ -16347,10 +16372,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - name: HP
-    maxValue: 1
-    curValue: 1
+    maxValue: 7
+    curValue: 7
     depleated: 0
   - name: Lives
-    maxValue: 1
-    curValue: 1
+    maxValue: 3
+    curValue: 3
     depleated: 0

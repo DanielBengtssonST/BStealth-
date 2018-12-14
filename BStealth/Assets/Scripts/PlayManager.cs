@@ -41,7 +41,7 @@ public class PlayManager : MonoBehaviour {
 	public void PlayerDeath(){
 
 		Time.timeScale = 0.3f;
-		Invoke ("ReloadScene", 0.4f);
+		Invoke ("ReloadScene", 0.25f);
 	}
 
 	public void ReloadScene(){

@@ -13,20 +13,33 @@ public class PenaltyManager : MonoBehaviour {
 		} else {
 			Destroy (gameObject);
 		}
-		DontDestroyOnLoad (this);
+//		DontDestroyOnLoad (this);
 	}
 
 	CharacterStats playerStats;
-	[SerializeField] string[] penaltyNames = new string[]{"NoPenalty","TakeDamage","LoseLife","Restart","Gameover"};
+	[SerializeField] int curPenaltyMode = 0;
+	string[][] penaltyNamesList = new string[4][];
+
+	[SerializeField] string[] curPenaltyNames;
+
 
 	void Start(){
 
 		playerStats = GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ();
+
+		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","Gameover"};
+		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty"};
+		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","Gameover"};
+		penaltyNamesList[3] = new string[]{"NoPenalty","Restart","NoPenalty","NoPenalty","NoPenalty"};
+
+		curPenaltyNames = penaltyNamesList [curPenaltyMode];
+
+
 	}
 
 	public void CallPenalty(int _index){
 
-		Invoke (penaltyNames [_index], 0);
+		Invoke (curPenaltyNames [_index], 0);
 	}
 
 	// List of penalties
@@ -36,22 +49,23 @@ public class PenaltyManager : MonoBehaviour {
 
 		playerStats.FindStat ("HP").ChangeValue (-1);
 		if (playerStats.FindStat ("HP").depleated) {
-			CallPenalty (3);
+			Debug.Log ("Player is ded");
+			CallPenalty (2);
 		}
 	}
 	//Index: 2
+	void Restart(){
+
+		PlayManager.instance.PlayerDeath ();
+		CallPenalty (3);
+	}
+	//Index: 3
 	void LoseLife(){
 
 		playerStats.FindStat ("Lives").ChangeValue (-1);
 		if (playerStats.FindStat ("Lives").depleated) {
-			CallPenalty (0);
+			CallPenalty (4);
 		}
-	}
-	//Index: 3
-	void Restart(){
-
-		PlayManager.instance.PlayerDeath ();
-		CallPenalty (2);
 	}
 	//Index: 4
 	void GameOver(){
