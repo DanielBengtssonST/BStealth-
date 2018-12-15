@@ -71,8 +71,9 @@ public class EnemySight : MonoBehaviour
                 {
                     if (!shooting)
                     {
+						PenaltyManager.instance.CallPenalty(0);	//Vill testa att anropa en penalty när man blir hittad.
 						GameObject bullet = Instantiate(bulletPrefab, transform.position + (transform.forward*0.5f), transform.rotation);
-						bullet.GetComponent<BulletScript> ().SetShooter (gameObject);
+//						bullet.GetComponent<BulletScript> ().SetShooter (gameObject);
                         StartCoroutine("ShootPlayerDelay", shotDelay);
                         StartCoroutine("FoundPlayer", 1);
                     }

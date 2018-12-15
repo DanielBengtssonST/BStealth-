@@ -16,9 +16,9 @@ public class BulletScript : MonoBehaviour
 //      StartCoroutine("DestroyMe", shotLife);
     }
 
-	public void SetShooter(GameObject _shooter){
-		shooter = _shooter;
-	}
+//	public void SetShooter(GameObject _shooter){
+//		shooter = _shooter;
+//	}
 
 //    IEnumerator DestroyMe(float delay)
 //    {
@@ -38,12 +38,12 @@ public class BulletScript : MonoBehaviour
             print("DU BLÄ TRÄFFAD!");
           
 			PenaltyManager.instance.CallPenalty (1);
-		//	Destroy(gameObject);
+			Destroy(gameObject);
         }
-//        else if (other.tag == "Wall")
-//        {
-//	            Destroy(gameObject);
-//        }
-		Destroy(gameObject);
+        else if (other.tag == "Wall")
+        {
+	       	Destroy(gameObject);
+        }
+//		Destroy(gameObject);
 	}
 }

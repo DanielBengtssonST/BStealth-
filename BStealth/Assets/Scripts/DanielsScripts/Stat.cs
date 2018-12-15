@@ -8,7 +8,7 @@ public class Stat {
 	[SerializeField] string name;
 	[SerializeField] float maxValue;
 	[SerializeField] float curValue;
-	public bool depleated;
+	public bool depleted;
 
 	public void ChangeValue(float _value){
 
@@ -21,9 +21,9 @@ public class Stat {
 		if (curValue <= 0) {
 
 			curValue = 0;
-			depleated = true;
+			depleted = true;
 		} else {
-			depleated = false;
+			depleted = false;
 		}
 	}
 

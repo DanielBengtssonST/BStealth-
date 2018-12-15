@@ -7,7 +7,6 @@ public class SimpleRotation : MonoBehaviour {
 	public bool rotating;
 	public float XRotation, YRotation, ZRotation;
 
-
 	// Update is called once per frame
 	void Update () {
 	
