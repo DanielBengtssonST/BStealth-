@@ -9,11 +9,15 @@ public class Stat {
 	[SerializeField] float maxValue;
 	[SerializeField] float curValue;
 	public bool depleted;
+	[SerializeField] StatBar bar;
 
 	public void ChangeValue(float _value){
 
 		curValue = Mathf.Min (curValue += _value, maxValue);
 		CheckValue ();
+		if (bar) {
+			bar.UpdateBar ();
+		}
 	}
 
 	void CheckValue(){
@@ -30,5 +34,13 @@ public class Stat {
 	public string getName(){
 
 		return name;
+	}
+	public float getValue (){
+
+		return curValue;
+	}
+	public float getMaxValue(){
+
+		return maxValue;
 	}
 }
