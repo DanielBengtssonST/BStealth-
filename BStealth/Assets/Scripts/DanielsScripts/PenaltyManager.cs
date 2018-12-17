@@ -13,7 +13,7 @@ public class PenaltyManager : MonoBehaviour {
 		} else {
 			Destroy (gameObject);
 		}
-//		DontDestroyOnLoad (this);
+		DontDestroyOnLoad (this);
 	}
 
 	CharacterStats playerStats;
@@ -25,7 +25,7 @@ public class PenaltyManager : MonoBehaviour {
 
 	void Start(){
 
-		playerStats = GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ();
+//		playerStats = GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ();
 
 		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","Gameover"};	//Classic
 		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty"};	//Modern
@@ -39,8 +39,14 @@ public class PenaltyManager : MonoBehaviour {
 
 	public void CallPenalty(int _index){
 
-		Invoke (curPenaltyNames [_index], 0);
+		Invoke (penaltyNamesList[curPenaltyMode][_index], 0);
 	}
+	public void UpdatePlayerStats(){
+
+		playerStats = GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ();
+	}
+
+
 	// List of penalties
 	void TakeDamage(){
 

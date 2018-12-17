@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 
 //Pause & Scene reload
 public class PlayManager : MonoBehaviour {
@@ -20,7 +20,7 @@ public class PlayManager : MonoBehaviour {
 		DontDestroyOnLoad (this);
 	}
 
-	[SerializeField] Text playTime;
+//	[SerializeField] Text playTime;
 
 	bool paused;
 

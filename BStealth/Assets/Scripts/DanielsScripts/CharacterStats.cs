@@ -8,6 +8,7 @@ public class CharacterStats : MonoBehaviour {
 
 	void Start(){
 
+		PenaltyManager.instance.UpdatePlayerStats ();
 	}
 
 	public Stat FindStat(string _statName){

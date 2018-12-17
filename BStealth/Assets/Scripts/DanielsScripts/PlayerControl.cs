@@ -5,8 +5,8 @@ public class PlayerControl : MonoBehaviour {
 
 	MovementCore movement;
 
-	float baseMovementSpeed = 40;		
-	public float bonusMovementSpeed;
+	float baseMovementSpeed = 10;		
+	public float bonusMovementSpeed = 20;
 
 	void Awake(){
 		
