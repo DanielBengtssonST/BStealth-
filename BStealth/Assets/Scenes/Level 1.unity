@@ -26848,6 +26848,10 @@ MonoBehaviour:
   canvasKey: {fileID: 1391434324}
   unlockProgress: {fileID: 1368590216}
   aquiredKey: 0
+  uiElements:
+  - {fileID: 1368590214}
+  - {fileID: 130133411}
+  - {fileID: 2056104620}
 --- !u!136 &1838396477
 CapsuleCollider:
   m_ObjectHideFlags: 0
