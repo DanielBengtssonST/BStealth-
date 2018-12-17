@@ -7,7 +7,8 @@ public class DoorScript : MonoBehaviour
 {
 
     bool unlocking = false;
-    public GameObject canvas;
+    public GameObject canvasUnlocking;
+    public GameObject canvasKey;
     public Slider unlockProgress;
     public bool aquiredKey;
 
@@ -33,7 +34,12 @@ public class DoorScript : MonoBehaviour
     {
         if (!aquiredKey)
         {
+            canvasKey.SetActive(unlocking);
             return;
+        }
+        else
+        {
+            canvasUnlocking.SetActive(unlocking);
         }
         if (unlocking)
         {
@@ -47,8 +53,6 @@ public class DoorScript : MonoBehaviour
         {
             unlockProgress.value = 0;
         }
-        canvas.SetActive(unlocking);
-        
     }
 
 }
