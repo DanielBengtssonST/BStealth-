@@ -9088,6 +9088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2989d7ebecf0f03478d4ec3a408d9a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barSlider: {fileID: 0}
   barStatName: 
 --- !u!65 &640287729
 BoxCollider:
@@ -24980,6 +24981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2989d7ebecf0f03478d4ec3a408d9a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barSlider: {fileID: 0}
   barStatName: 
 --- !u!43 &1744024734
 Mesh:
@@ -25957,8 +25959,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819b4b791bdcfe343af10cb9467450b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curPenaltyNames:
-  - 
   curPenaltyMode: 1
 --- !u!4 &1810198340
 Transform:
@@ -31814,6 +31814,7 @@ GameObject:
   - component: {fileID: 2114085744}
   - component: {fileID: 2114085743}
   - component: {fileID: 2114085750}
+  - component: {fileID: 2114085751}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -31951,12 +31952,23 @@ MonoBehaviour:
     maxValue: 3
     curValue: 3
     depleted: 0
-    bar: {fileID: 1715888470}
   - name: Lives
     maxValue: 3
     curValue: 3
     depleted: 0
-    bar: {fileID: 0}
+--- !u!114 &2114085751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114085742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2989d7ebecf0f03478d4ec3a408d9a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barSlider: {fileID: 749719170}
+  barStatName: HP
 --- !u!1 &2124529565
 GameObject:
   m_ObjectHideFlags: 0
