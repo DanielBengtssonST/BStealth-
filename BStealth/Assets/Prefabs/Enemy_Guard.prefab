@@ -22,11 +22,11 @@ GameObject:
   - component: {fileID: 33083023849786980}
   - component: {fileID: 23206609554260036}
   - component: {fileID: 136656017675410392}
+  - component: {fileID: 114185119097585672}
   - component: {fileID: 114295959060212258}
   - component: {fileID: 195844944809938194}
-  - component: {fileID: 114185119097585672}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy_Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
