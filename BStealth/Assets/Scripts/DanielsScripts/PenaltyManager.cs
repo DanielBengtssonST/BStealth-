@@ -17,10 +17,8 @@ public class PenaltyManager : MonoBehaviour {
 	}
 
 	CharacterStats playerStats;
-
-
 	string[][] penaltyNamesList = new string[6][];
-	[SerializeField] string[] curPenaltyNames;
+//	[SerializeField] string[] curPenaltyNames;
 	[SerializeField] int curPenaltyMode = 0;
 
 	void Start(){
@@ -34,7 +32,7 @@ public class PenaltyManager : MonoBehaviour {
 		penaltyNamesList[4] = new string[]{"NoPenalty","TakeDamage","GameOver","GameOver","GameOver"};	//Hardcore
 		penaltyNamesList[5] = new string[]{"Restart","NoPenalty","NoPenalty","NoPenalty","NoPenalty"};	//Instant Restart On Detection
 
-		curPenaltyNames = penaltyNamesList [curPenaltyMode];
+//		curPenaltyNames = penaltyNamesList [curPenaltyMode];
 	}
 
 	public void CallPenalty(int _index){

@@ -9,7 +9,7 @@ public class Stat {
 	[SerializeField] float maxValue;
 	[SerializeField] float curValue;
 	public bool depleted;
-	[SerializeField] StatBar bar;
+	StatBar bar;
 
 	public void ChangeValue(float _value){
 
@@ -42,5 +42,9 @@ public class Stat {
 	public float getMaxValue(){
 
 		return maxValue;
+	}
+	public void SetStatBar(StatBar _statBar){
+
+		bar = _statBar;
 	}
 }

@@ -13,6 +13,8 @@ public class CharacterStats : MonoBehaviour {
 
 	public Stat FindStat(string _statName){
 
+		if (_statName == "") return null;
+		
 		return stats.Find (Stat => Stat.getName ().Contains (_statName));
 	}
 }
