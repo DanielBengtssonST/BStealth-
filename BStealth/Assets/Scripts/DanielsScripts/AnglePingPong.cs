@@ -5,11 +5,16 @@ using UnityEngine;
 public class AnglePingPong : MonoBehaviour {
 
 	public bool PingPongActive = true;
-	public float angleA, angleB;				//The two stop and start angles to rotate between. 
+	public float angleA, angleB, startAngle;	//The two stop and start angles to rotate between. 
 	[Range(0,45)] public float rotationSpeed; 	//Recommended Range for script stability. (Sometimes skips wait delay when rotation speed is too high)
 	public float waitDelay;						//Delay how long to wait before rotating back.
 	float curAngle, t;
 		
+	void Start(){
+
+		t = Mathf.Clamp (startAngle - angleA, 0, angleB - angleA);
+	}
+
 	// Update is called once per frame
 	void Update () {
 
