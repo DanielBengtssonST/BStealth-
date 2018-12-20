@@ -20,6 +20,9 @@ public class CameraBrain: MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		if (!target) {
+			target = GameObject.FindWithTag ("Player");
+		}
 		targetPos = transform.position;
 	}
 
