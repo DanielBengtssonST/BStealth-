@@ -742,6 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1797696214}
+  targetPos: {x: 0, y: 0, z: 0}
   follow: 1
   lookAround: 0
   followXYZ: 010101
@@ -17193,6 +17194,8 @@ GameObject:
   - component: {fileID: 1651259823}
   - component: {fileID: 1651259822}
   - component: {fileID: 1651259821}
+  - component: {fileID: 1651259827}
+  - component: {fileID: 1651259826}
   m_Layer: 0
   m_Name: Enemy_Camera
   m_TagString: Untagged
@@ -17235,6 +17238,8 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
+  enemyGroup:
+  - {fileID: 2138054181}
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
@@ -17301,6 +17306,42 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1651259820}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1651259826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651259820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6074cf47a435b7c41877516a3b8263f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wayPoints: []
+  foundPlayer: 0
+  normalSpeed: 0
+  chaseSpeed: 0
+--- !u!195 &1651259827
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651259820}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5000001
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.9999999
+  m_BaseOffset: 0.99999994
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1665586384
 GameObject:
   m_ObjectHideFlags: 0
@@ -21665,6 +21706,12 @@ Transform:
   m_Father: {fileID: 1437233768}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138054181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114295959060212258, guid: a44a6225771e8fb448a501b8086e2630,
+    type: 2}
+  m_PrefabInternal: {fileID: 809185814}
+  m_Script: {fileID: 11500000, guid: 6074cf47a435b7c41877516a3b8263f5, type: 3}
 --- !u!1 &2144972833
 GameObject:
   m_ObjectHideFlags: 0
