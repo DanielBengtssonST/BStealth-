@@ -38,7 +38,7 @@ public class CameraBrain: MonoBehaviour {
 
 			if (lookAround) {
 
-				cameraLookOffset = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z));
+				cameraLookOffset = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z) * cameraLookScale);
 			} else {
 				cameraLookOffset = targetPos;
 			}
@@ -54,7 +54,7 @@ public class CameraBrain: MonoBehaviour {
 					}
 				}
 			}
-			transform.position = Vector3.SmoothDamp (transform.position, (targetPos+(cameraLookOffset*cameraLookScale))/2, ref refFollowvelocity, followTime);
+			transform.position = Vector3.SmoothDamp (transform.position, (targetPos+cameraLookOffset)/2, ref refFollowvelocity, followTime);
 		}
 	}
 				
