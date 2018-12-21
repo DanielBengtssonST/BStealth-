@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour {
 
-	public List<Stat> stats;
+	[SerializeField] List<Stat> stats;
+
+	public bool alive = true;
 
 	void Start(){
 

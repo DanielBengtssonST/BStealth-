@@ -54,8 +54,11 @@ public class PenaltyManager : MonoBehaviour {
 	}
 	void Restart(){
 
-		PlayManager.instance.PlayerDeath ();
-		CallPenalty (3);
+		if (playerStats.alive) {
+			playerStats.alive = false;
+			PlayManager.instance.PlayerDeath ();
+			CallPenalty (3);
+		}
 	}
 	void LoseLife(){
 

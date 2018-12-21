@@ -16,13 +16,14 @@ public class PlayManager : MonoBehaviour {
 		} else {
 			Destroy (gameObject);
 		}
-
 		DontDestroyOnLoad (this);
 	}
 
-//	[SerializeField] Text playTime;
+
 
 	bool paused;
+	[SerializeField] int deathCounter;
+//	[SerializeField] Text playTime;
 
 	void Update(){
 
@@ -42,9 +43,12 @@ public class PlayManager : MonoBehaviour {
 
 		Time.timeScale = 0.3f;
 		Invoke ("ReloadScene", 0.25f);
+		deathCounter++;
+		Debug.Log ("You have died " + deathCounter + " times. Stay Determinied!");
 	}
 
 	public void ReloadScene(){
+
 
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		PauseGame (false);
