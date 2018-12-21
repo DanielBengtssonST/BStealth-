@@ -12,6 +12,8 @@ public class EnemySight : MonoBehaviour
     public LayerMask obstacleMask;
     public LayerMask playerMask;
 
+	public AImovement[] enemyGroup;
+
     public float meshResolution;
     public int edgeResolveIterations;
     public float edgeDstThreshold;
@@ -81,7 +83,6 @@ public class EnemySight : MonoBehaviour
                 }
             }
         }
-
     }
 
     IEnumerator ShootPlayerDelay(float delay)
@@ -93,8 +94,14 @@ public class EnemySight : MonoBehaviour
     IEnumerator FoundPlayer(float chaseTime)
     {
         GetComponent<AImovement>().foundPlayer = true;
+		for (int i = 0; i < enemyGroup.Length; i++) {
+			enemyGroup [i].foundPlayer = true;
+		}
         yield return new WaitForSeconds(chaseTime);
         GetComponent<AImovement>().foundPlayer = false;
+		for (int i = 0; i < enemyGroup.Length; i++) {
+			enemyGroup [i].foundPlayer = false;
+		}
     }
 
 
