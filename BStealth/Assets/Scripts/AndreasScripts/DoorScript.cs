@@ -55,7 +55,7 @@ public class DoorScript : MonoBehaviour
         }
         if (unlocking)
         {
-            unlockProgress.value++;
+			unlockProgress.value += 1*Time.timeScale;
             if (unlockProgress.value == unlockProgress.maxValue)
             {
                 Destroy(gameObject);
