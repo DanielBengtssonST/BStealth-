@@ -17,6 +17,7 @@ public class CameraBrain: MonoBehaviour {
 	public float followTime;									//The time it takes for the camera to move to a new target position
 
 	public Vector3 cameraLookOffset;
+	public float cameraLookScale;
 
 
 	Vector3 refFollowvelocity = Vector3.zero;
@@ -35,7 +36,6 @@ public class CameraBrain: MonoBehaviour {
 
 		if (follow) {
 
-		
 			if (lookAround) {
 
 				cameraLookOffset = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z));
@@ -54,7 +54,7 @@ public class CameraBrain: MonoBehaviour {
 					}
 				}
 			}
-			transform.position = Vector3.SmoothDamp (transform.position, (targetPos+cameraLookOffset)/2, ref refFollowvelocity, followTime);
+			transform.position = Vector3.SmoothDamp (transform.position, (targetPos+(cameraLookOffset*cameraLookScale))/2, ref refFollowvelocity, followTime);
 		}
 	}
 				

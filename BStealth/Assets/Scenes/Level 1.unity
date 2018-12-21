@@ -19830,9 +19830,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2114085742}
   follow: 1
+  lookAround: 0
   followXYZ: 010101
   cameraFollowOffset: {x: 0, y: 10, z: 0}
-  followTime: 0
+  followTime: 0.075
+  cameraLookOffset: {x: 0, y: 0, z: 0}
+  cameraLookScale: 0.75
 --- !u!1 &795406985
 GameObject:
   m_ObjectHideFlags: 0
