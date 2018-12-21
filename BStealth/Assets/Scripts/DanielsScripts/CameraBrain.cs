@@ -7,7 +7,7 @@ using UnityEngine;
 public class CameraBrain: MonoBehaviour {
 
 	public GameObject target; 									//The target game object
-	Vector3 targetPos;
+	public Vector3 targetPos;
 
 	[Header("Follow")]
 	public bool follow = true;									//If Camera should follow
