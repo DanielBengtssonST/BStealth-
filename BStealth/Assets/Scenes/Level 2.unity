@@ -17220,7 +17220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotating: 1
   XRotation: 0
-  YRotation: -0.5
+  YRotation: -1.5
   ZRotation: 0
 --- !u!114 &1651259822
 MonoBehaviour:
