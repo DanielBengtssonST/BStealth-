@@ -25,5 +25,9 @@ public class TimerScript : MonoBehaviour {
             string seconds = (time % 60).ToString("f2"); //Displayes the remaing seconds in the minut and the decimals
             textUI.text = string.Format("{0:00}:{1:00} ", minutes, seconds); //changes the ui text to what the timer is
         }
+        else
+        {
+            textUI.text = "0:00.00";
+        }
 	}
 }
