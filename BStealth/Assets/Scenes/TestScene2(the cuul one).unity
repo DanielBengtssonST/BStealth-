@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textUI: {fileID: 1472085521}
-  time: 10
+  time: 120
 --- !u!4 &1649373158
 Transform:
   m_ObjectHideFlags: 0

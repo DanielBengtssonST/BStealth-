@@ -13,23 +13,17 @@ public class TimerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(TheTimer());
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-    IEnumerator TheTimer()
-    {
-		for(float f = time; f >= 0; f -= (1f/60f) * Time.timeScale)
+		if(time >= 0)
         {
-            textUI.text = f.ToString("F"); //Changes the ui text to the current time
-            yield return null;
+            time -= Time.deltaTime; //is the actual timer
+            string minutes = ((int)time / 60).ToString(); //Allows for minutes to be shown so it's not just seconds
+            string seconds = (time % 60).ToString("f2"); //Displayes the remaing seconds in the minut and the decimals
+            textUI.text = string.Format("{0:00}:{1:00} ", minutes, seconds); //changes the ui text to what the timer is
         }
-        textUI.text = "0.00"; //timer sometimes ends att 0.02 so this just changes the text to always be 0.00
-        print("time is upp boi"); //executes after timer 
-		PenaltyManager.instance.CallPenalty(4);
-    }
+	}
 }
