@@ -4834,6 +4834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d1a492b8641314585cb943a5908715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathCounter: 0
 --- !u!4 &195670652
 Transform:
   m_ObjectHideFlags: 0
@@ -34672,7 +34673,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: ddab93b6908596c44951ebac29cb76fe, type: 2}
+  - {fileID: 2100000, guid: 3ffe9d0fb494d48438d82561c177fcd9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34705,13 +34706,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1362432197}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 24.5, y: 0, z: -18.39}
   m_LocalScale: {x: 1.5, y: 0.001, z: 0.5}
   m_Children: []
   m_Father: {fileID: 2146320768}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1362432202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55135,6 +55136,7 @@ MonoBehaviour:
     maxValue: 3
     curValue: 3
     depleted: 0
+  alive: 1
 --- !u!114 &2114085751
 MonoBehaviour:
   m_ObjectHideFlags: 0
