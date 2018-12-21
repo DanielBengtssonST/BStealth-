@@ -54,8 +54,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1845713416062768}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.766914, y: -8.0396265e-17, z: -3.2547493}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 33, y: 0.5, z: -28.5}
   m_LocalScale: {x: 0.5, y: 0.3, z: 0.5}
   m_Children:
   - {fileID: 4716534458192628}
@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f5aa7215c106748b6d7c99b54d0cec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 7
-  viewAngle: 90
+  viewRadius: 11.5
+  viewAngle: 70
   obstacleMask:
     serializedVersion: 2
     m_Bits: 512
@@ -198,10 +198,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PingPongActive: 1
-  angleA: -45
-  angleB: 45
-  rotationSpeed: 25
-  waitDelay: 1
+  angleA: 45
+  angleB: 270
+  startAngle: 0
+  rotationSpeed: 35
+  waitDelay: 2
 --- !u!136 &136265654697543490
 CapsuleCollider:
   m_ObjectHideFlags: 1
