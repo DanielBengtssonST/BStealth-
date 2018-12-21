@@ -11,9 +11,13 @@ public class CameraBrain: MonoBehaviour {
 
 	[Header("Follow")]
 	public bool follow = true;									//If Camera should follow
+	public bool lookAround = false;
 	public bool[] followXYZ = new bool[]{true, true, true};		//If camera should follow the X(0), Y(1) and/or Z(2) axis
 	public Vector3 cameraFollowOffset;							//The offset by which the camera should follow
 	public float followTime;									//The time it takes for the camera to move to a new target position
+
+	public Vector3 cameraLookOffset;
+
 
 	Vector3 refFollowvelocity = Vector3.zero;
 
@@ -31,6 +35,14 @@ public class CameraBrain: MonoBehaviour {
 
 		if (follow) {
 
+		
+			if (lookAround) {
+
+				cameraLookOffset = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z));
+			} else {
+				cameraLookOffset = targetPos;
+			}
+
 			for (int i = 0; i < 3; i++) {
 
 				if (followXYZ [i]) {
@@ -42,7 +54,7 @@ public class CameraBrain: MonoBehaviour {
 					}
 				}
 			}
-			transform.position = Vector3.SmoothDamp (transform.position, targetPos, ref refFollowvelocity, followTime);
+			transform.position = Vector3.SmoothDamp (transform.position, (targetPos+cameraLookOffset)/2, ref refFollowvelocity, followTime);
 		}
 	}
 				

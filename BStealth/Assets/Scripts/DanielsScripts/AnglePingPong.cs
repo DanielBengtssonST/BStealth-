@@ -20,6 +20,10 @@ public class AnglePingPong : MonoBehaviour {
 
 		if (PingPongActive) {
 
+			if (t > (angleB - angleA)*2) {
+				t = 0;
+			}
+
 			curAngle = (angleA + Mathf.PingPong (t += Time.deltaTime * rotationSpeed, angleB - angleA));
 
 			if (Mathf.Round(curAngle)-0.75f <= angleA || Mathf.Round(curAngle)+0.75f >= angleB) {

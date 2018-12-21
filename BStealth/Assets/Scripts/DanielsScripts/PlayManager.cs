@@ -37,6 +37,9 @@ public class PlayManager : MonoBehaviour {
 
 			ReloadScene ();
 		}
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			Camera.main.GetComponent<CameraBrain> ().lookAround = !Camera.main.GetComponent<CameraBrain> ().lookAround;
+		}
 	}
 
 	public void PlayerDeath(){
