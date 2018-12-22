@@ -23,7 +23,11 @@ public class TimerScript : MonoBehaviour {
             time -= Time.deltaTime; //is the actual timer
             string minutes = ((int)time / 60).ToString(); //Allows for minutes to be shown so it's not just seconds
             string seconds = (time % 60).ToString("f2"); //Displayes the remaing seconds in the minut and the decimals
-            textUI.text = string.Format("{0:00}:{1:00} ", minutes, seconds); //changes the ui text to what the timer is
+            if (time % 60 < 10) //makes sure that a zero is displayed before a single digit second
+            {
+                seconds = 0 + seconds;
+            }
+            textUI.text = minutes + ":" + seconds; //changes the ui text to what the timer is
         }
         else
         {
