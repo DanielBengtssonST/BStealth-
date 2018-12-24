@@ -14999,7 +14999,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh38510
+  m_Name: pb_Mesh143930
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -44322,7 +44322,7 @@ MonoBehaviour:
   - {x: 27.5, y: 0, z: -0.5}
   - {x: 0, y: 0, z: -0.5}
   extrude: 1
-  polyEditMode: 3
+  polyEditMode: 0
   flipNormals: 0
   isOnGrid: 1
 --- !u!4 &1981260643
