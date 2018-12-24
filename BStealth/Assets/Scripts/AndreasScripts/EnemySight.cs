@@ -12,7 +12,7 @@ public class EnemySight : MonoBehaviour
     public LayerMask obstacleMask;
     public LayerMask playerMask;
 
-	public AImovement[] enemyGroup;
+    public AImovement[] enemyGroup;
 
     public float meshResolution;
     public int edgeResolveIterations;
@@ -23,6 +23,8 @@ public class EnemySight : MonoBehaviour
     public float shotDelay = 1f;
     bool shooting;
 
+
+    public bool canShoot = true;
     public GameObject bulletPrefab;
 
     public MeshFilter viewMeshFilter;
@@ -73,10 +75,13 @@ public class EnemySight : MonoBehaviour
                 {
                     if (!shooting)
                     {
-						PenaltyManager.instance.CallPenalty(0);	//Vill testa att anropa en penalty när man blir hittad.
-						GameObject bullet = Instantiate(bulletPrefab, transform.position + (transform.forward*0.5f), transform.rotation);
-//						bullet.GetComponent<BulletScript> ().SetShooter (gameObject);
-                        StartCoroutine("ShootPlayerDelay", shotDelay);
+                        PenaltyManager.instance.CallPenalty(0); //Vill testa att anropa en penalty när man blir hittad.
+                        if (canShoot)
+                        {
+                            GameObject bullet = Instantiate(bulletPrefab, transform.position + (transform.forward * 0.5f), transform.rotation);
+                            //bullet.GetComponent<BulletScript> ().SetShooter (gameObject);
+                            StartCoroutine("ShootPlayerDelay", shotDelay);
+                        }
                         StartCoroutine("FoundPlayer", 1);
                     }
                     return;
@@ -94,14 +99,16 @@ public class EnemySight : MonoBehaviour
     IEnumerator FoundPlayer(float chaseTime)
     {
         GetComponent<AImovement>().foundPlayer = true;
-		for (int i = 0; i < enemyGroup.Length; i++) {
-			enemyGroup [i].foundPlayer = true;
-		}
+        for (int i = 0; i < enemyGroup.Length; i++)
+        {
+            enemyGroup[i].foundPlayer = true;
+        }
         yield return new WaitForSeconds(chaseTime);
         GetComponent<AImovement>().foundPlayer = false;
-		for (int i = 0; i < enemyGroup.Length; i++) {
-			enemyGroup [i].foundPlayer = false;
-		}
+        for (int i = 0; i < enemyGroup.Length; i++)
+        {
+            enemyGroup[i].foundPlayer = false;
+        }
     }
 
 
