@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-	GameObject player, shooter;
+	GameObject player; 
+	GameObject shooter;
     public float shotSpeed;
     public float shotLife = 1;
 	public float damage = 1;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-		GetComponent<Rigidbody>().AddForce((player.transform.position - transform.position)*shotSpeed,ForceMode.VelocityChange);
+		GetComponent<Rigidbody>().AddForce((player.transform.position - transform.position).normalized * shotSpeed,ForceMode.VelocityChange);
 		Destroy (gameObject, shotLife);
 //      StartCoroutine("DestroyMe", shotLife);
     }
 
-//	public void SetShooter(GameObject _shooter){
-//		shooter = _shooter;
-//	}
+	public void SetShooter(GameObject _shooter){
+		shooter = _shooter;
+	}
 
 //    IEnumerator DestroyMe(float delay)
 //    {
@@ -33,10 +34,13 @@ public class BulletScript : MonoBehaviour
 //			Destroy(gameObject);			
 //		}
 
-        if (other.tag == "Player")
+		if (other.CompareTag("Player"))
         {
             print("DU BLÄ TRÄFFAD!");
           
+			//Playing around with a knockback effect /Daniel
+//			other.gameObject.GetComponent<MovementCore> ().ApplyKnockbackForce ((player.transform.position - shooter.transform.position).normalized * 40f,false);
+
 			PenaltyManager.instance.CallPenalty (1);
 			Destroy(gameObject);
         }

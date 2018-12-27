@@ -12,14 +12,15 @@ public class MovementCore : MonoBehaviour {
 
 	Rigidbody rig;
 
-	public float curXVelocity, curYVelocity, curZVelocity;
+//	public float curXVelocity, curYVelocity, curZVelocity;
+	public Vector3 curVelocity;
 
 	float knockbackDuration = 0.1f;
 	float maxKnockbackForce = 500;
 
 	[SerializeField] float knockbackMultiplier;
 
-	public Vector3 knockback;
+	[SerializeField] Vector3 knockback;
 	Vector3 refVelocity;
 
 	public bool grounded;
@@ -39,10 +40,16 @@ public class MovementCore : MonoBehaviour {
 	void FixedUpdate(){
 
 		rig.velocity = (new Vector3 (
-		/*  X  */	curXVelocity / Mathf.Max(Mathf.Abs(knockback.x)/20,1),
-		/*  Y  */	curYVelocity,
-		/*  Z  */	curZVelocity / Mathf.Max(Mathf.Abs(knockback.z)/20,1)) 
-		/* All */	+ knockback) * 10 * Time.deltaTime;
+			/*  X  */	curVelocity.x / Mathf.Max(Mathf.Abs(knockback.x)/20,1),
+			/*  Y  */	curVelocity.y,
+			/*  Z  */	curVelocity.z / Mathf.Max(Mathf.Abs(knockback.z)/20,1)) 
+			/* All */	+ knockback) * 10 * Time.deltaTime;
+
+//		rig.velocity = (new Vector3 (
+//		/*  X  */	curXVelocity / Mathf.Max(Mathf.Abs(knockback.x)/20,1),
+//		/*  Y  */	curYVelocity,
+//		/*  Z  */	curZVelocity / Mathf.Max(Mathf.Abs(knockback.z)/20,1)) 
+//		/* All */	+ knockback) * 10 * Time.deltaTime;
 	}
 	//Manages external forces
 	void Update () {
@@ -50,7 +57,7 @@ public class MovementCore : MonoBehaviour {
 		//If airborn, a downward force is applied.
 		if(!grounded){
 
-			curYVelocity = Mathf.Max(curYVelocity -= gravity * 10 * gravityMultiplier * Time.deltaTime, -maxFallVelocity * gravityMultiplier);
+			curVelocity.y = Mathf.Max(curVelocity.y -= gravity * 10 * gravityMultiplier * Time.deltaTime, -maxFallVelocity * gravityMultiplier);
 		}
 		//If a knockback force is active, it decays over a duration
 		if (knockback != Vector3.zero) {
