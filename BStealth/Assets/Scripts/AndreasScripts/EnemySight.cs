@@ -38,6 +38,14 @@ public class EnemySight : MonoBehaviour
         StartCoroutine("FindPlayerWithDelay", findPlayerDelay);
     }
 
+    private void OnEnable()
+    {
+        viewMesh = new Mesh();
+        viewMesh.name = "View Mesh";
+        viewMeshFilter.mesh = viewMesh;
+        StartCoroutine("FindPlayerWithDelay", findPlayerDelay);
+    }
+
     private void LateUpdate()
     {
         DrawFieldOfView();
