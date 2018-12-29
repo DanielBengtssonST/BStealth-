@@ -7,6 +7,7 @@ public class CameraBlink : MonoBehaviour
 {
     public float timer = 0f;
     public MeshRenderer sightMesh;
+	public GameObject warningLight;
     private void Start()
     {
         StartCoroutine("blink");
@@ -17,7 +18,11 @@ public class CameraBlink : MonoBehaviour
         while (true)
         {
             print("test");
-            yield return new WaitForSeconds(timer);
+            yield return new WaitForSeconds(timer-1);
+
+			warningLight.SetActive (!warningLight.activeSelf);
+
+			yield return new WaitForSeconds (1);
             GetComponent<EnemySight>().StopAllCoroutines();
             GetComponent<EnemySight>().enabled = !GetComponent<EnemySight>().enabled;
             sightMesh.enabled = !sightMesh.enabled;
