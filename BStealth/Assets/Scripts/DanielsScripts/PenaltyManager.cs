@@ -23,13 +23,13 @@ public class PenaltyManager : MonoBehaviour {
 
 	void Start(){
 		
-		// [0] = Detection. [][1] = Hit. [][2] = no HP. [][3] = on Restart. [][4] = no life.
-		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","Gameover"};	//Classic
-		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty"};	//Modern
-		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","Gameover"}; 	//Old arcade
-		penaltyNamesList[3] = new string[]{"NoPenalty","Restart","NoPenalty","NoPenalty","NoPenalty"};	//Meatboy 
-		penaltyNamesList[4] = new string[]{"NoPenalty","TakeDamage","GameOver","GameOver","GameOver"};	//Hardcore
-		penaltyNamesList[5] = new string[]{"Restart","NoPenalty","NoPenalty","NoPenalty","NoPenalty"};	//Instant Restart On Detection
+		// [0] = Detection. [][1] = Hit. [][2] = no HP. [][3] = on Restart. [][4] = no life, [][5] = Timer Run Out.
+		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","Gameover", "Restart"};	//Classic
+		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty","Restart"};	//Modern
+		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","Gameover", "Restart"}; 	//Old arcade
+		penaltyNamesList[3] = new string[]{"NoPenalty","Restart","NoPenalty","NoPenalty","NoPenalty","Restart"};	//Meatboy 
+		penaltyNamesList[4] = new string[]{"NoPenalty","TakeDamage","GameOver","GameOver","GameOver", "Restart"};	//Hardcore
+		penaltyNamesList[5] = new string[]{"Restart","NoPenalty","NoPenalty","NoPenalty","NoPenalty", "Restart"};	//Instant Restart On Detection
 
 		curPenaltyNames = penaltyNamesList [curPenaltyMode];
 	}
