@@ -11,7 +11,6 @@ public class DoorScript : MonoBehaviour
     public GameObject canvasKey;
     public Slider unlockProgress;
     public bool aquiredKey;
-
     public List<GameObject> uiElements = new List<GameObject>();
 
 
