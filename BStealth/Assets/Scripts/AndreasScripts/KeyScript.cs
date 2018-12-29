@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyScript : MonoBehaviour {
+public class KeyScript : MonoBehaviour
+{
 
     public DoorScript door;
 
@@ -10,7 +11,10 @@ public class KeyScript : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            door.aquiredKey = true;
+            if (door != null)
+            {
+                door.aquiredKey = true;
+            }
             Destroy(gameObject);
         }
     }
