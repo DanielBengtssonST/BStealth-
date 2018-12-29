@@ -6,11 +6,14 @@ public class CharacterStats : MonoBehaviour {
 
 	[SerializeField] List<Stat> stats;
 
-	public bool alive = true;
+	public bool player = true, alive = true;
 
 	void Start(){
 
-		PenaltyManager.instance.UpdatePlayerStats ();
+		if (player) {
+			PenaltyManager.instance.UpdatePlayerStats ();
+			FindStat ("Lives").ChangeValue ((float)PlayManager.instance.playerLives);
+		}
 	}
 
 	public Stat FindStat(string _statName){

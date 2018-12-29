@@ -11200,8 +11200,9 @@ MonoBehaviour:
     depleted: 0
   - name: Lives
     maxValue: 3
-    curValue: 3
+    curValue: 0
     depleted: 0
+  player: 1
   alive: 1
 --- !u!114 &1206674284
 MonoBehaviour:
@@ -27108,6 +27109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathCounter: 0
+  playerLives: 0
 --- !u!4 &2141866982
 Transform:
   m_ObjectHideFlags: 0

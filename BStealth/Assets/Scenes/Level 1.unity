@@ -2560,6 +2560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathCounter: 0
+  playerLives: 2
 --- !u!4 &195670652
 Transform:
   m_ObjectHideFlags: 0
@@ -34626,7 +34627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curPenaltyNames: []
-  curPenaltyMode: 1
+  curPenaltyMode: 0
 --- !u!4 &1810198340
 Transform:
   m_ObjectHideFlags: 0
@@ -41213,9 +41214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd6e4e853a23104da360286cc3b50bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curXVelocity: 0
-  curYVelocity: 0
-  curZVelocity: 0
+  curVelocity: {x: 0, y: 0, z: 0}
   knockbackMultiplier: 0
   knockback: {x: 0, y: 0, z: 0}
   grounded: 0
@@ -41334,8 +41333,9 @@ MonoBehaviour:
     depleted: 0
   - name: Lives
     maxValue: 3
-    curValue: 3
+    curValue: 0
     depleted: 0
+  player: 1
   alive: 1
 --- !u!114 &2114085751
 MonoBehaviour:

@@ -24,9 +24,9 @@ public class PenaltyManager : MonoBehaviour {
 	void Start(){
 		
 		// [0] = Detection. [][1] = Hit. [][2] = no HP. [][3] = on Restart. [][4] = no life, [][5] = Timer Run Out.
-		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","Gameover", "Restart"};	//Classic
+		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","GameOver", "Restart"};	//Classic
 		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty","Restart"};	//Modern
-		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","Gameover", "Restart"}; 	//Old arcade
+		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","GameOver", "Restart"}; 	//Old arcade
 		penaltyNamesList[3] = new string[]{"NoPenalty","Restart","NoPenalty","NoPenalty","NoPenalty","Restart"};	//Meatboy 
 		penaltyNamesList[4] = new string[]{"NoPenalty","TakeDamage","GameOver","GameOver","GameOver", "Restart"};	//Hardcore
 		penaltyNamesList[5] = new string[]{"Restart","NoPenalty","NoPenalty","NoPenalty","NoPenalty", "Restart"};	//Instant Restart On Detection
@@ -63,6 +63,8 @@ public class PenaltyManager : MonoBehaviour {
 	void LoseLife(){
 
 		playerStats.FindStat ("Lives").ChangeValue (-1);
+		PlayManager.instance.playerLives = (int)playerStats.FindStat ("Lives").getValue ();
+
 		if (playerStats.FindStat ("Lives").depleted) {
 			CallPenalty (4);
 		}
@@ -70,8 +72,10 @@ public class PenaltyManager : MonoBehaviour {
 	void GameOver(){
 
 		Debug.Log ("GAME OVER");
-		PlayManager.instance.ReloadScene ();
-		PlayManager.instance.PauseGame (true);
+		PlayManager.instance.LoadScene (0);
+//		PlayManager.instance.ReloadScene ();
+		PlayManager.instance.playerLives = (int)playerStats.FindStat ("Lives").getMaxValue ();
+//		PlayManager.instance.PauseGame (true);
 	}
 	void NoPenalty(){
 
