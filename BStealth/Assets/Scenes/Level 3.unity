@@ -3529,7 +3529,7 @@ MonoBehaviour:
   canvasUnlocking: {fileID: 531652385}
   canvasKey: {fileID: 828042425}
   unlockProgress: {fileID: 949688295}
-  aquiredKey: 1
+  aquiredKey: 0
   uiElements:
   - {fileID: 949688293}
   - {fileID: 1523855278}
@@ -11518,7 +11518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1015420536920402, guid: a44a6225771e8fb448a501b8086e2630, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4267398867860456, guid: a44a6225771e8fb448a501b8086e2630, type: 2}
       propertyPath: m_LocalScale.x
@@ -16003,7 +16003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1565543607
 Transform:
   m_ObjectHideFlags: 0
@@ -16236,7 +16236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1579004547
 Transform:
   m_ObjectHideFlags: 0
@@ -21212,7 +21212,7 @@ Prefab:
       objectReference: {fileID: 1744247749}
     - target: {fileID: 1845713416062768, guid: 412a5f0f701ba4843b9898610e75181a, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 412a5f0f701ba4843b9898610e75181a, type: 2}
@@ -21462,6 +21462,10 @@ Prefab:
       propertyPath: enemyGroup.Array.data[1]
       value: 
       objectReference: {fileID: 1744247749}
+    - target: {fileID: 1845713416062768, guid: 412a5f0f701ba4843b9898610e75181a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 412a5f0f701ba4843b9898610e75181a, type: 2}
   m_IsPrefabAsset: 0
