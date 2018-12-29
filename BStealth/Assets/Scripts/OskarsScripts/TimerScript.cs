@@ -32,6 +32,7 @@ public class TimerScript : MonoBehaviour {
         else
         {
             textUI.text = "0:00.00";
+            PlayManager.instance.ReloadScene();
         }
 	}
 }
