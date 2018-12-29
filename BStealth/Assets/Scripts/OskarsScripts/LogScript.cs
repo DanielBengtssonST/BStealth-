@@ -6,11 +6,11 @@ using System.IO;
 public class LogScript : MonoBehaviour {
 
     public static LogScript logScript;
-    int numberOfDiscoverd = 0;
-    int numberOfDeaths = 0;
-    int numberOfDamages = 0;
-    int numberOfKeys = 0;
-    int NumberOfDoorsOpened = 0;
+    static int numberOfDiscoverd = 0;
+    static int numberOfDeaths = 0;
+    static int numberOfDamages = 0;
+    static int numberOfKeys = 0;
+    static int NumberOfDoorsOpened = 0;
 
     void CreateTextfile()
     {
@@ -52,7 +52,7 @@ public class LogScript : MonoBehaviour {
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player was spotted by an enemy. \n";
-        logScript.numberOfDiscoverd++;
+        numberOfDiscoverd++;
         File.AppendAllText(path, logText);
     }
 
@@ -60,7 +60,7 @@ public class LogScript : MonoBehaviour {
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player was killed by an enemy. \n";
-        logScript.numberOfDeaths++;
+        numberOfDeaths++;
         File.AppendAllText(path, logText);
     }
 
@@ -68,7 +68,7 @@ public class LogScript : MonoBehaviour {
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player was damaged by an enemy. \n";
-        logScript.numberOfDamages++;
+        numberOfDamages++;
         File.AppendAllText(path, logText);
     }
 
@@ -76,7 +76,7 @@ public class LogScript : MonoBehaviour {
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player picked up a key. \n";
-        logScript.numberOfKeys++;
+        numberOfKeys++;
         File.AppendAllText(path, logText);
     }
 
@@ -84,18 +84,18 @@ public class LogScript : MonoBehaviour {
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player opened a door. \n";
-        logScript.NumberOfDoorsOpened++;
+        NumberOfDoorsOpened++;
         File.AppendAllText(path, logText);
     }
 
     public static void Win()
     {
         string path = Application.dataPath + "/Log.txt";
-        string logText = MinuteTimer() + ": player got to the exit and won. \nPlyer was found:" + logScript.numberOfDiscoverd + " times " +
-            "\nPlayer recived damage: " + logScript.numberOfDamages + " times " +
-            "\nPlayer died: " + logScript.numberOfDeaths + " times" +
-            "\nPlyer found:" + logScript.numberOfKeys + " keys " +
-            "\nPlayer opened: " + logScript.NumberOfDoorsOpened + " doors";
+        string logText = MinuteTimer() + ": player got to the exit and won. \nPlayer was found:" + numberOfDiscoverd + " times " +
+            "\nPlayer recived damage: " + numberOfDamages + " times " +
+            "\nPlayer died: " + numberOfDeaths + " times" +
+            "\nPlayer found:" + numberOfKeys + " keys " +
+            "\nPlayer opened: " + NumberOfDoorsOpened + " doors";
         File.AppendAllText(path, logText);
     }
 }

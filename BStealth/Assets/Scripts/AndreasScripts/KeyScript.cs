@@ -15,6 +15,7 @@ public class KeyScript : MonoBehaviour
             {
                 door.aquiredKey = true;
             }
+            LogScript.FoundKey();
             Destroy(gameObject);
         }
     }

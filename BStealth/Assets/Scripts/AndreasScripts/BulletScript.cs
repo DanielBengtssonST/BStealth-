@@ -37,7 +37,7 @@ public class BulletScript : MonoBehaviour
 		if (other.CompareTag("Player"))
         {
             print("DU BLÄ TRÄFFAD!");
-          
+            LogScript.Damage();
 			//Playing around with a knockback effect /Daniel
 //			other.gameObject.GetComponent<MovementCore> ().ApplyKnockbackForce ((player.transform.position - shooter.transform.position).normalized * 40f,false);
 

@@ -58,6 +58,7 @@ public class PenaltyManager : MonoBehaviour {
 			playerStats.alive = false;
 			PlayManager.instance.PlayerDeath ();
 			CallPenalty (3);
+            LogScript.Dead();
 		}
 	}
 	void LoseLife(){

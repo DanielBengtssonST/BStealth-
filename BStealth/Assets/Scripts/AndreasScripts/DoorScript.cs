@@ -57,6 +57,7 @@ public class DoorScript : MonoBehaviour
 			unlockProgress.value += 1*Time.timeScale;
             if (unlockProgress.value == unlockProgress.maxValue)
             {
+                LogScript.OpenDoor();
                 Destroy(gameObject);
             }
         }

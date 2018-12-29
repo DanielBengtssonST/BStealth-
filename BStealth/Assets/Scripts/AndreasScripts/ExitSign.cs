@@ -23,6 +23,7 @@ public class ExitSign : MonoBehaviour
             {
                 SceneManager.LoadScene(nextSceneName);
             }
+            LogScript.Win();
         }
     }
 }
