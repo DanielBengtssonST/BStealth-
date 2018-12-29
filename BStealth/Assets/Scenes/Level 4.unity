@@ -25758,7 +25758,7 @@ GameObject:
   - component: {fileID: 1915952515}
   - component: {fileID: 1915952514}
   - component: {fileID: 1915952513}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -27095,7 +27095,7 @@ GameObject:
   - component: {fileID: 1997766862}
   - component: {fileID: 1997766861}
   - component: {fileID: 1997766860}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27165,8 +27165,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1997766859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38.5, y: 0, z: -0.5}
-  m_LocalScale: {x: 10, y: 1, z: 6}
+  m_LocalPosition: {x: -47.25, y: 0, z: -0.75}
+  m_LocalScale: {x: 15, y: 1, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
