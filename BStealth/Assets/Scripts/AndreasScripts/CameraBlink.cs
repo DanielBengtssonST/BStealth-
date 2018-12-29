@@ -1,32 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(EnemySight))]
 public class CameraBlink : MonoBehaviour
 {
     public float timer = 0f;
     public MeshRenderer sightMesh;
-	public GameObject warningLight;
-    private void Start()
-    {
-        StartCoroutine("blink");
-    }
+    public Slider blinkProgress;
 
-    IEnumerator blink()
+    private void Update()
     {
-        while (true)
+        blinkProgress.value += 1 * Time.timeScale;
+        if (blinkProgress.value == blinkProgress.maxValue)
         {
-            print("test");
-            yield return new WaitForSeconds(timer-1);
-
-			warningLight.SetActive (!warningLight.activeSelf);
-
-			yield return new WaitForSeconds (1);
+            blinkProgress.value = 0;
             GetComponent<EnemySight>().StopAllCoroutines();
             GetComponent<EnemySight>().enabled = !GetComponent<EnemySight>().enabled;
             sightMesh.enabled = !sightMesh.enabled;
         }
-
     }
 }
