@@ -15,15 +15,17 @@ public class PenaltyManager : MonoBehaviour {
 		}
 		DontDestroyOnLoad (this);
 
-		PenaltyRandomizer ();
+		if (Randomize) PenaltyRandomizer ();
 	}
 
+
+	public bool Randomize = true;
 	CharacterStats playerStats;
 	string[][] penaltyNamesList = new string[6][];
 	[SerializeField] string[] curPenaltyNames;
 	[SerializeField] int curPenaltyMode = 0;
 
-	public List<int> penaltyModes;
+	public List<int> penaltyModesToRandomize;
 	public List<int> curPenaltyModes;
 	int penaltyModeIndex = 0;
 
@@ -64,13 +66,14 @@ public class PenaltyManager : MonoBehaviour {
 
 	void PenaltyRandomizer(){
 
-		int _count = penaltyModes.Count;
+		curPenaltyModes.Clear ();
+		int _count = penaltyModesToRandomize.Count;
 
 		for (int i = 0; i < _count; i++) {
 
-			int _random = Random.Range (0, penaltyModes.Count);
-			curPenaltyModes.Add(penaltyModes[_random]);
-			penaltyModes.RemoveAt (_random);
+			int _random = Random.Range (0, penaltyModesToRandomize.Count);
+			curPenaltyModes.Add(penaltyModesToRandomize[_random]);
+			penaltyModesToRandomize.RemoveAt (_random);
 		}
 	}
 		

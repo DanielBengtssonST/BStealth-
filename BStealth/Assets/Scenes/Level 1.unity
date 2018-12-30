@@ -34626,10 +34626,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819b4b791bdcfe343af10cb9467450b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Randomize: 1
   curPenaltyNames: []
   curPenaltyMode: 0
-  penaltyModes: 00000000010000000200000003000000
-  curPenaltyModes: 
+  penaltyModesToRandomize: 00000000010000000200000003000000
+  curPenaltyModes: 0100000005000000
 --- !u!4 &1810198340
 Transform:
   m_ObjectHideFlags: 0
