@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public GameObject controls, main;
+    public GameObject controls, main, levels;
 
     public void StartGame()
     {
@@ -19,9 +19,9 @@ public class MainMenu : MonoBehaviour
         main.SetActive(false);
     }
 
-    public void HardcoreLevel3()
+    public void Level(int levelID)
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(levelID);
     }
 
     public void Quit()
@@ -29,8 +29,15 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Levels()
+    {
+        levels.SetActive(true);
+        main.SetActive(false);
+    }
+
     public void Back()
     {
+        levels.SetActive(false);
         controls.SetActive(false);
         main.SetActive(true);
     }
