@@ -17,6 +17,8 @@ public class PlayManager : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		DontDestroyOnLoad (this);
+
+		playerLives = (int)GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();
 	}
 
 
@@ -28,7 +30,6 @@ public class PlayManager : MonoBehaviour {
 
 	void Start(){
 
-		playerLives = (int)GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();
 	}
 
 	void Update(){

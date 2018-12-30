@@ -7706,6 +7706,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curPenaltyNames: []
   curPenaltyMode: 1
+  penaltyModes: 00000000010000000200000003000000
+  curPenaltyModes: 
 --- !u!4 &332923550
 Transform:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class PenaltyManager : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		DontDestroyOnLoad (this);
+
+		PenaltyRandomizer ();
 	}
 
 	CharacterStats playerStats;
@@ -21,16 +23,22 @@ public class PenaltyManager : MonoBehaviour {
 	[SerializeField] string[] curPenaltyNames;
 	[SerializeField] int curPenaltyMode = 0;
 
+	public List<int> penaltyModes;
+	public List<int> curPenaltyModes;
+	int penaltyModeIndex = 0;
+
+
 	void Start(){
 		
 		// [0] = Detection. [][1] = Hit. [][2] = no HP. [][3] = on Restart. [][4] = no life, [][5] = Timer Run Out.
-		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","GameOver", "Restart"};	//Classic
+		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","GameOver","Restart"};		//Classic
 		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty","Restart"};	//Modern
 		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","GameOver", "Restart"}; 	//Old arcade
 		penaltyNamesList[3] = new string[]{"NoPenalty","Restart","NoPenalty","NoPenalty","NoPenalty","Restart"};	//Meatboy 
-		penaltyNamesList[4] = new string[]{"NoPenalty","TakeDamage","GameOver","GameOver","GameOver", "Restart"};	//Hardcore
-		penaltyNamesList[5] = new string[]{"Restart","NoPenalty","NoPenalty","NoPenalty","NoPenalty", "Restart"};	//Instant Restart On Detection
+		penaltyNamesList[4] = new string[]{"NoPenalty","TakeDamage","GameOver","GameOver","GameOver","GameOver"};	//Hardcore
+		penaltyNamesList[5] = new string[]{"Restart","NoPenalty","NoPenalty","LoseLife","NoPenalty","Restart"};		//Instant Restart On Detection
 
+		curPenaltyMode = curPenaltyModes [penaltyModeIndex];
 		curPenaltyNames = penaltyNamesList [curPenaltyMode];
 	}
 
@@ -42,13 +50,35 @@ public class PenaltyManager : MonoBehaviour {
 
 		playerStats = GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ();
 	}
+	public void NextPenaltyMode(){
+
+		penaltyModeIndex++;
+		Debug.Log (penaltyModeIndex + " : " + curPenaltyModes.Count);
+		if (penaltyModeIndex >= curPenaltyModes.Count) {
+			penaltyModeIndex = 0;
+		}
+
+		curPenaltyMode = curPenaltyModes [penaltyModeIndex];
+		curPenaltyNames = penaltyNamesList [curPenaltyMode];
+	}
+
+	void PenaltyRandomizer(){
+
+		int _count = penaltyModes.Count;
+
+		for (int i = 0; i < _count; i++) {
+
+			int _random = Random.Range (0, penaltyModes.Count);
+			curPenaltyModes.Add(penaltyModes[_random]);
+			penaltyModes.RemoveAt (_random);
+		}
+	}
 		
 	// List of penalties
 	void TakeDamage(){
 
 		playerStats.FindStat ("HP").ChangeValue (-1);
 		if (playerStats.FindStat ("HP").depleted) {
-			Debug.Log ("Player is ded");
 			CallPenalty (2);
 		}
 	}
@@ -56,8 +86,13 @@ public class PenaltyManager : MonoBehaviour {
 
 		if (playerStats.alive) {
 			playerStats.alive = false;
-			PlayManager.instance.PlayerDeath ();
-			CallPenalty (3);
+
+			if (penaltyNamesList [curPenaltyMode] [3] == "LoseLife") {
+				
+				CallPenalty (3);
+			} else {
+				PlayManager.instance.PlayerDeath ();
+			}
 		}
 	}
 	void LoseLife(){
@@ -67,15 +102,14 @@ public class PenaltyManager : MonoBehaviour {
 
 		if (playerStats.FindStat ("Lives").depleted) {
 			CallPenalty (4);
+		} else {
+			PlayManager.instance.PlayerDeath ();
 		}
 	}
 	void GameOver(){
-
-		Debug.Log ("GAME OVER");
+		
 		PlayManager.instance.LoadScene (0);
-//		PlayManager.instance.ReloadScene ();
 		PlayManager.instance.playerLives = (int)playerStats.FindStat ("Lives").getMaxValue ();
-//		PlayManager.instance.PauseGame (true);
 	}
 	void NoPenalty(){
 
