@@ -9525,7 +9525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: 
-  nextSceneID: 2
+  nextSceneID: 3
   switchUsingID: 1
 --- !u!65 &460392974
 BoxCollider:

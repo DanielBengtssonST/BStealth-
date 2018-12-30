@@ -25362,7 +25362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: 
-  nextSceneID: 1
+  nextSceneID: 2
   switchUsingID: 1
 --- !u!1 &1362902052
 GameObject:
