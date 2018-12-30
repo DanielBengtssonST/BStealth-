@@ -3720,7 +3720,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 137774870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.625, y: 0, z: -2.25}
+  m_LocalPosition: {x: 0, y: 0, z: -1.5}
   m_LocalScale: {x: 3.25, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1194008837}
@@ -4930,6 +4930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathCounter: 0
+  playerLives: 0
 --- !u!4 &195670652
 Transform:
   m_ObjectHideFlags: 0
@@ -9524,7 +9525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: 
-  nextSceneID: 0
+  nextSceneID: 3
   switchUsingID: 1
 --- !u!65 &460392974
 BoxCollider:
@@ -23167,7 +23168,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1096888653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.833385, y: 0, z: -19.5}
+  m_LocalPosition: {x: -48.75, y: 0, z: -19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1437233768}
@@ -23178,7 +23179,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh38376
+  m_Name: pb_Mesh262742
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -27014,7 +27015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1253309567
@@ -30425,7 +30426,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh38042
+  m_Name: pb_Mesh262292
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -36877,7 +36878,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1742714154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.333385, y: 0, z: -17}
+  m_LocalPosition: {x: -51.25, y: 0, z: -17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1437233768}
@@ -39081,8 +39082,9 @@ MonoBehaviour:
     depleted: 0
   - name: Lives
     maxValue: 3
-    curValue: 3
+    curValue: 0
     depleted: 0
+  player: 1
   alive: 1
 --- !u!114 &1797696217
 MonoBehaviour:

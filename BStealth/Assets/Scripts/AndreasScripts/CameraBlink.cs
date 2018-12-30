@@ -6,7 +6,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(EnemySight))]
 public class CameraBlink : MonoBehaviour
 {
-    public float timer = 0f;
     public MeshRenderer sightMesh;
     public Slider blinkProgress;
 

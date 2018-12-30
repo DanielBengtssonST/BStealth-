@@ -2560,6 +2560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathCounter: 0
+  playerLives: 2
 --- !u!4 &195670652
 Transform:
   m_ObjectHideFlags: 0
@@ -7712,7 +7713,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &508834602
@@ -25544,7 +25545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: 
-  nextSceneID: 1
+  nextSceneID: 2
   switchUsingID: 1
 --- !u!1 &1362902052
 GameObject:
@@ -34849,7 +34850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curPenaltyNames: []
-  curPenaltyMode: 1
+  curPenaltyMode: 0
 --- !u!4 &1810198340
 Transform:
   m_ObjectHideFlags: 0
@@ -41555,8 +41556,9 @@ MonoBehaviour:
     depleted: 0
   - name: Lives
     maxValue: 3
-    curValue: 3
+    curValue: 0
     depleted: 0
+  player: 1
   alive: 1
 --- !u!114 &2114085751
 MonoBehaviour:

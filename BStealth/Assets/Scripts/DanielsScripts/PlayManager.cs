@@ -23,7 +23,13 @@ public class PlayManager : MonoBehaviour {
 
 	bool paused;
 	[SerializeField] int deathCounter;
+	public int playerLives;
 //	[SerializeField] Text playTime;
+
+	void Start(){
+
+		playerLives = (int)GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();
+	}
 
 	void Update(){
 
@@ -52,9 +58,17 @@ public class PlayManager : MonoBehaviour {
 
 	public void ReloadScene(){
 
-
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		PauseGame (false);
+	}
+
+	public void LoadScene(int _index){
+
+		SceneManager.LoadScene (_index);
+	}
+	public void LoadScene(string _name){
+
+		SceneManager.LoadScene (_name);
 	}
 
 	public void PauseGame(bool _b){
