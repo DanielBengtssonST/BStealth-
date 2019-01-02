@@ -12172,6 +12172,11 @@ Prefab:
       propertyPath: viewMeshFilter
       value: 
       objectReference: {fileID: 695720097}
+    - target: {fileID: 33999984085065706, guid: 412a5f0f701ba4843b9898610e75181a,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300002, guid: 8a5c3247883ed46449c3131f71998bc1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 412a5f0f701ba4843b9898610e75181a, type: 2}
   m_IsPrefabAsset: 0
@@ -14007,6 +14012,11 @@ Prefab:
       propertyPath: enemyGroup.Array.data[3]
       value: 
       objectReference: {fileID: 750253576}
+    - target: {fileID: 33999984085065706, guid: 412a5f0f701ba4843b9898610e75181a,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300002, guid: 8a5c3247883ed46449c3131f71998bc1, type: 3}
     m_RemovedComponents:
     - {fileID: 114479220351153800, guid: 412a5f0f701ba4843b9898610e75181a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 412a5f0f701ba4843b9898610e75181a, type: 2}
@@ -34849,8 +34859,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819b4b791bdcfe343af10cb9467450b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Randomize: 1
   curPenaltyNames: []
   curPenaltyMode: 0
+  penaltyModesToRandomize: 00000000010000000200000003000000
+  curPenaltyModes: 0100000005000000
 --- !u!4 &1810198340
 Transform:
   m_ObjectHideFlags: 0
@@ -35106,6 +35119,11 @@ Prefab:
       propertyPath: enemyGroup.Array.data[1]
       value: 
       objectReference: {fileID: 1855814833}
+    - target: {fileID: 33999984085065706, guid: 412a5f0f701ba4843b9898610e75181a,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300002, guid: 8a5c3247883ed46449c3131f71998bc1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 412a5f0f701ba4843b9898610e75181a, type: 2}
   m_IsPrefabAsset: 0
@@ -37028,6 +37046,11 @@ Prefab:
       propertyPath: enemyGroup.Array.data[1]
       value: 
       objectReference: {fileID: 876943861}
+    - target: {fileID: 33999984085065706, guid: 412a5f0f701ba4843b9898610e75181a,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300002, guid: 8a5c3247883ed46449c3131f71998bc1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 412a5f0f701ba4843b9898610e75181a, type: 2}
   m_IsPrefabAsset: 0
