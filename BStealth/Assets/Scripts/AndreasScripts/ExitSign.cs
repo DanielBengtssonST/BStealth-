@@ -14,16 +14,7 @@ public class ExitSign : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-			PenaltyManager.instance.NextPenaltyMode ();
-            if (switchUsingID)
-            {
-                SceneManager.LoadScene(nextSceneID);
-
-            }
-            else
-            {
-                SceneManager.LoadScene(nextSceneName);
-            }
+            PlayManager.instance.LoadScene(0);
             LogScript.Win();
         }
     }

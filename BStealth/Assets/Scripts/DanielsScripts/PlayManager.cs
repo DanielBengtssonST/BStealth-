@@ -44,7 +44,12 @@ public class PlayManager : MonoBehaviour {
 
 			ReloadScene ();
 		}
-		if (Input.GetKeyDown (KeyCode.Space)) {
+        if (paused && Input.GetKeyDown(KeyCode.Backspace))
+        {
+            LogScript.Loose();
+            LoadScene(0);
+        }
+        if (Input.GetKeyDown (KeyCode.Space)) {
 			Camera.main.GetComponent<CameraBrain> ().lookAround = !Camera.main.GetComponent<CameraBrain> ().lookAround;
 		}
 	}
@@ -55,6 +60,7 @@ public class PlayManager : MonoBehaviour {
 		Invoke ("ReloadScene", 0.25f);
 		deathCounter++;
 		Debug.Log ("You have died " + deathCounter + " times. Stay Determinied!");
+        Invoke("PauseCyckle", 0.25f);
 	}
 
 	public void ReloadScene(){
@@ -78,10 +84,25 @@ public class PlayManager : MonoBehaviour {
 		if (paused) {
 
 			Time.timeScale = 0;
+            LogScript.GamePaused();
 
 		} else {
 
 			Time.timeScale = 1;
+            LogScript.GameUnpaused();
 		}
 	}
+
+    void PauseCyckle()
+    {
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+            paused = true;
+        }
+        else if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+    }
 }

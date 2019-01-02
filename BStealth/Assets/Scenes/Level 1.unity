@@ -33823,7 +33823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1789223130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34859,11 +34859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819b4b791bdcfe343af10cb9467450b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Randomize: 1
   curPenaltyNames: []
-  curPenaltyMode: 0
-  penaltyModesToRandomize: 00000000010000000200000003000000
-  curPenaltyModes: 0100000005000000
+  curPenaltyMode: 6
 --- !u!4 &1810198340
 Transform:
   m_ObjectHideFlags: 0

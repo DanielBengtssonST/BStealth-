@@ -30,6 +30,7 @@ public class DoorScript : MonoBehaviour
         if (other.tag == "Player")
         {
             unlocking = true;
+            LogScript.OpeningDoor();
         }
     }
 
@@ -38,6 +39,7 @@ public class DoorScript : MonoBehaviour
         if (other.tag == "Player")
         {
             unlocking = false;
+            LogScript.LeavingDoor();
         }
     }
 
