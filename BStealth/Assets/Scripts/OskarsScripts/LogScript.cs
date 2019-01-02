@@ -11,6 +11,7 @@ public class LogScript : MonoBehaviour {
     static int numberOfDamages = 0;
     static int numberOfKeys = 0;
     static int NumberOfDoorsOpened = 0;
+    static int NumberOfTimeOut = 0;
 
     void CreateTextfile()
     {
@@ -88,14 +89,23 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
+    public static void TimeOut()
+    {
+        string path = Application.dataPath + "/Log.txt";
+        string logText = MinuteTimer() + ": player ran out of time. \n";
+        NumberOfTimeOut++;
+        File.AppendAllText(path, logText);
+    }
+
     public static void Win()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player got to the exit and won. \nPlayer was found:" + numberOfDiscoverd + " times " +
             "\nPlayer recived damage: " + numberOfDamages + " times " +
             "\nPlayer died: " + numberOfDeaths + " times" +
-            "\nPlayer found:" + numberOfKeys + " keys " +
-            "\nPlayer opened: " + NumberOfDoorsOpened + " doors";
+            "\nPlayer found:" + numberOfKeys + " keys" +
+            "\nPlayer opened: " + NumberOfDoorsOpened + " doors" +
+            "\nPlayer timed out: " + NumberOfTimeOut + " times";
         File.AppendAllText(path, logText);
     }
 }

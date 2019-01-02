@@ -1,0 +1,10 @@
+0:4: player picked up a key. 
+0:13: player opened a door. 
+0:39: player was spotted by an enemy. 
+0:40: player was damaged by an enemy. 
+0:49: player picked up a key. 
+0:57: player was spotted by an enemy. 
+0:57: player was damaged by an enemy. 
+0:57: player was spotted by an enemy. 
+0:57: player was damaged by an enemy. 
+0:57: player was killed by an enemy. 
