@@ -1,0 +1,12 @@
+0:3: player picked up a key. 
+0:5: player started to open door. 
+0:8: player opened a door. 
+0:4: player picked up a key. 
+0:6: player started to open door. 
+0:9: player opened a door. 
+0:23: player picked up a key. 
+0:39: player picked up a key. 
+0:47: player started to open door. 
+0:50: player opened a door. 
+0:51: player started to open door. 
+0:54: player opened a door. 
