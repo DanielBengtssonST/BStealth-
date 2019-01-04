@@ -83,7 +83,7 @@ public class EnemySight : MonoBehaviour
                 {
                     if (!shooting)
                     {
-                        PenaltyManager.instance.CallPenalty(0); //Vill testa att anropa en penalty när man blir hittad.
+                        //PenaltyManager.instance.CallPenalty(0); //Vill testa att anropa en penalty när man blir hittad.
                         if (canShoot)
                         {
                             GameObject bullet = Instantiate(bulletPrefab, transform.position + (transform.forward * 0.5f), transform.rotation);
