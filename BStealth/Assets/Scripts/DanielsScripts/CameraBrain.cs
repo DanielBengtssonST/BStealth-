@@ -17,7 +17,7 @@ public class CameraBrain: MonoBehaviour {
 	public float followTime;									//The time it takes for the camera to move to a new target position
 
 	public Vector3 cameraLookOffset;
-	public float cameraLookScale;
+	public float cameraLookScale = 1;
 
 
 	Vector3 refFollowvelocity = Vector3.zero;

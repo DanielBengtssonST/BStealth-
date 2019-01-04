@@ -55,7 +55,6 @@ public class PenaltyManager : MonoBehaviour {
 	public void NextPenaltyMode(){
 
 		penaltyModeIndex++;
-		Debug.Log (penaltyModeIndex + " : " + curPenaltyModes.Count);
 		if (penaltyModeIndex >= curPenaltyModes.Count) {
 			penaltyModeIndex = 0;
 		}
