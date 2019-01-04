@@ -39,6 +39,7 @@ public class PlayManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 
 			PauseGame (!paused);
+            LogScript.GamePaused();
 		}
 		if (paused && Input.GetKeyDown (KeyCode.R)) {
 
@@ -83,13 +84,11 @@ public class PlayManager : MonoBehaviour {
 		paused = _b;
 		if (paused) {
 
-			Time.timeScale = 0;
-            LogScript.GamePaused();
+			Time.timeScale = 0;  
 
 		} else {
 
 			Time.timeScale = 1;
-            LogScript.GameUnpaused();
 		}
 	}
 

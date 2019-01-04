@@ -15,7 +15,6 @@ public class LogScript : MonoBehaviour {
     static int numberOfDoorOpenings = 0;
     static int numberOfDoorsLeft = 0;
     static int numberOfPaused = 0;
-    static int numberOfUnpaused = 0;
 
     void CreateTextfile()
     {
@@ -24,12 +23,6 @@ public class LogScript : MonoBehaviour {
         {
             File.WriteAllText(path, "Game start \n \n");
         }
-        else if (File.Exists(path))
-        {
-            string StartString = "Game start \n \n";
-            File.AppendAllText(path, StartString);
-        }
-
     }
 	
     void Awake()
@@ -38,6 +31,7 @@ public class LogScript : MonoBehaviour {
         if(logScript == null)
         {
             DontDestroyOnLoad(gameObject);
+
         }
         else if(logScript != null)
         {
@@ -117,16 +111,8 @@ public class LogScript : MonoBehaviour {
     public static void GamePaused()
     {
         string path = Application.dataPath + "/Log.txt";
-        string logText = MinuteTimer() + ": player paused the game. \n";
+        string logText = MinuteTimer() + ": player pressed paus. \n";
         numberOfPaused++;
-        File.AppendAllText(path, logText);
-    }
-
-    public static void GameUnpaused()
-    {
-        string path = Application.dataPath + "/Log.txt";
-        string logText = MinuteTimer() + ": player unpaused the game. \n";
-        numberOfUnpaused++;
         File.AppendAllText(path, logText);
     }
 
@@ -144,12 +130,11 @@ public class LogScript : MonoBehaviour {
         string logText = MinuteTimer() + ": player got to the exit and won. \nPlayer was found:" + numberOfDiscoverd + " times " +
             "\nPlayer recived damage: " + numberOfDamages + " times " +
             "\nPlayer died: " + numberOfDeaths + " times" +
-            "\nPlayer found:" + numberOfKeys + " keys" +
+            "\nPlayer found: " + numberOfKeys + " keys" +
             "\nPlayer opened: " + numberOfDoorsOpened + " doors" +
             "\nPlayer started opening: " + numberOfDoorOpenings + " doors" +
             "\nPlayer stoped opening: " + numberOfDoorsLeft + " doors" +
             "\nPlayer paused: " + numberOfPaused + " times" +
-            "\nPlayer unpaused: " + numberOfUnpaused + " times" +
             "\nPlayer timed out: " + numberOfTimeOut + " times";
         File.AppendAllText(path, logText);
     }
@@ -160,12 +145,11 @@ public class LogScript : MonoBehaviour {
         string logText = MinuteTimer() + ": player didn't reach the goal in time. \nPlayer was found:" + numberOfDiscoverd + " times " +
             "\nPlayer recived damage: " + numberOfDamages + " times " +
             "\nPlayer died: " + numberOfDeaths + " times" +
-            "\nPlayer found:" + numberOfKeys + " keys" +
+            "\nPlayer found: " + numberOfKeys + " keys" +
             "\nPlayer opened: " + numberOfDoorsOpened + " doors" +
             "\nPlayer started opening: " + numberOfDoorOpenings + " doors" +
             "\nPlayer stoped opening: " + numberOfDoorsLeft + " doors" +
             "\nPlayer paused: " + numberOfPaused + " times" +
-            "\nPlayer unpaused: " + numberOfUnpaused + " times" +
             "\nPlayer timed out: " + numberOfTimeOut + " times";
         File.AppendAllText(path, logText);
     }
