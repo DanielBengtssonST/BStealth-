@@ -44,6 +44,10 @@ public class PlayManager : MonoBehaviour {
 
 			ReloadScene ();
 		}
+		if (paused && Input.GetKeyDown (KeyCode.M)) {
+
+			LoadScene (0);
+		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			Camera.main.GetComponent<CameraBrain> ().lookAround = !Camera.main.GetComponent<CameraBrain> ().lookAround;
 		}
