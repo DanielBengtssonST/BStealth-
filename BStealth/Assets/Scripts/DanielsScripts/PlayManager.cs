@@ -39,7 +39,7 @@ public class PlayManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 
 			PauseGame (!paused);
-            LogScript.GamePaused();
+            LogScript.logScript.GamePaused();
 		}
 		if (paused && Input.GetKeyDown (KeyCode.R)) {
 
@@ -47,7 +47,7 @@ public class PlayManager : MonoBehaviour {
 		}
         if (paused && Input.GetKeyDown(KeyCode.Backspace))
         {
-            LogScript.Loose();
+            LogScript.logScript.Loose();
             LoadScene(0);
         }
         if (Input.GetKeyDown (KeyCode.Space)) {

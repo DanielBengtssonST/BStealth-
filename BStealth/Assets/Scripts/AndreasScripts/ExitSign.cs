@@ -15,7 +15,7 @@ public class ExitSign : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayManager.instance.LoadScene(0);
-            LogScript.Win();
+            LogScript.logScript.Win();
         }
     }
 }

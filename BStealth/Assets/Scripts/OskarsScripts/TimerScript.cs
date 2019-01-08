@@ -32,7 +32,7 @@ public class TimerScript : MonoBehaviour {
         else
         {
             textUI.text = "0:00.00";
-            LogScript.TimeOut();
+            LogScript.logScript.TimeOut();
             PenaltyManager.instance.CallPenalty(5);
         }
 	}

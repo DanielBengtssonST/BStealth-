@@ -6,15 +6,15 @@ using System.IO;
 public class LogScript : MonoBehaviour {
 
     public static LogScript logScript;
-    static int numberOfDiscoverd = 0;
-    static int numberOfDeaths = 0;
-    static int numberOfDamages = 0;
-    static int numberOfKeys = 0;
-    static int numberOfDoorsOpened = 0;
-    static int numberOfTimeOut = 0;
-    static int numberOfDoorOpenings = 0;
-    static int numberOfDoorsLeft = 0;
-    static int numberOfPaused = 0;
+    int numberOfDiscoverd = 0;
+    int numberOfDeaths = 0;
+    int numberOfDamages = 0;
+    int numberOfKeys = 0;
+    int numberOfDoorsOpened = 0;
+    int numberOfTimeOut = 0;
+    int numberOfDoorOpenings = 0;
+    int numberOfDoorsLeft = 0;
+    int numberOfPaused = 0;
 
     void CreateTextfile()
     {
@@ -31,9 +31,10 @@ public class LogScript : MonoBehaviour {
         if(logScript == null)
         {
             DontDestroyOnLoad(gameObject);
+            logScript = this;
 
         }
-        else if(logScript != null)
+        else if(logScript != this)
         {
             Destroy(gameObject);
         }
@@ -44,7 +45,7 @@ public class LogScript : MonoBehaviour {
 		
 	}
 
-    static string MinuteTimer()
+    string MinuteTimer()
     {
         float t = Time.time;
         string minute = ((int)t / 60).ToString();
@@ -52,7 +53,7 @@ public class LogScript : MonoBehaviour {
         return (minute + ":" + seconds);
     }
 
-    public static void Found()
+    public void Found()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player was spotted by an enemy. \n";
@@ -60,7 +61,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void Dead()
+    public void Dead()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player was killed by an enemy. \n";
@@ -68,7 +69,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void Damage()
+    public void Damage()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player was damaged by an enemy. \n";
@@ -76,7 +77,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void FoundKey()
+    public void FoundKey()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player picked up a key. \n";
@@ -84,7 +85,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void OpenDoor()
+    public void OpenDoor()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player opened a door. \n";
@@ -92,7 +93,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void OpeningDoor()
+    public void OpeningDoor()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player started to open door. \n";
@@ -100,7 +101,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void LeavingDoor()
+    public void LeavingDoor()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player stoped opening door. \n";
@@ -108,7 +109,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void GamePaused()
+    public void GamePaused()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player pressed paus. \n";
@@ -116,7 +117,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void TimeOut()
+    public void TimeOut()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player ran out of time. \n";
@@ -124,7 +125,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void Win()
+    public void Win()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player got to the exit and won. \nPlayer was found:" + numberOfDiscoverd + " times " +
@@ -139,7 +140,7 @@ public class LogScript : MonoBehaviour {
         File.AppendAllText(path, logText);
     }
 
-    public static void Loose()
+    public void Loose()
     {
         string path = Application.dataPath + "/Log.txt";
         string logText = MinuteTimer() + ": player didn't reach the goal in time. \nPlayer was found:" + numberOfDiscoverd + " times " +

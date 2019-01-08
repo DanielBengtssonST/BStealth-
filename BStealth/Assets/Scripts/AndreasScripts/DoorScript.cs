@@ -30,7 +30,7 @@ public class DoorScript : MonoBehaviour
         if (other.tag == "Player")
         {
             unlocking = true;
-            LogScript.OpeningDoor();
+            LogScript.logScript.OpeningDoor();
         }
     }
 
@@ -39,7 +39,7 @@ public class DoorScript : MonoBehaviour
         if (other.tag == "Player")
         {
             unlocking = false;
-            LogScript.LeavingDoor();
+            LogScript.logScript.LeavingDoor();
         }
     }
 
@@ -59,7 +59,7 @@ public class DoorScript : MonoBehaviour
 			unlockProgress.value += 1*Time.timeScale;
             if (unlockProgress.value == unlockProgress.maxValue)
             {
-                LogScript.OpenDoor();
+                LogScript.logScript.OpenDoor();
                 Destroy(gameObject);
             }
         }

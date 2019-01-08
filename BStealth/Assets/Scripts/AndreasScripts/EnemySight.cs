@@ -109,7 +109,7 @@ public class EnemySight : MonoBehaviour
         if (GetComponent<AImovement>())
         {
             GetComponent<AImovement>().foundPlayer = true;
-            LogScript.Found();
+            LogScript.logScript.Found();
         }
         for (int i = 0; i < enemyGroup.Length; i++)
         {
