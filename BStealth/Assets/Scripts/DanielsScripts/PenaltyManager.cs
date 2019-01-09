@@ -134,6 +134,7 @@ public class PenaltyManager : MonoBehaviour {
 		
 		PlayManager.instance.LoadScene (0);
 		PlayManager.instance.playerLives = (int)playerStats.FindStat ("Lives").getMaxValue ();
+//		PlayManager.instance.unlockedDoors.Clear ();
 	}
 	void NoPenalty(){
 

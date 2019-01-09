@@ -22,6 +22,7 @@ public class PlayManager : MonoBehaviour {
 	}
 
 
+//	public List<GameObject> unlockedDoors;
 
 	bool paused;
 	[SerializeField] int deathCounter;
@@ -49,7 +50,8 @@ public class PlayManager : MonoBehaviour {
 
 			LoadScene (0);
 			PauseGame (false);
-			playerLives = (int)GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();		
+			playerLives = (int)GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();	
+//			unlockedDoors.Clear ();
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			Camera.main.GetComponent<CameraBrain> ().lookAround = !Camera.main.GetComponent<CameraBrain> ().lookAround;
@@ -63,6 +65,14 @@ public class PlayManager : MonoBehaviour {
 		deathCounter++;
 		Debug.Log ("You have died " + deathCounter + " times. Stay Determinied!");
 	}
+
+//	public void RememeberDoors(){
+//
+//		for (int i = 0; i < unlockedDoors.Count; i++) {
+//
+//			unlockedDoors [i].gameObject.SetActive (false);
+//		}
+//	}
 
 	public void ReloadScene(){
 

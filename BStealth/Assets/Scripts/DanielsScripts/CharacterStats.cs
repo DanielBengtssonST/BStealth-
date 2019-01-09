@@ -20,6 +20,7 @@ public class CharacterStats : MonoBehaviour {
 		}
 		PlayManager.instance.penaltyIndicator = GameObject.Find ("PenaltyIndicator").GetComponent<Text> ();
 		PenaltyManager.instance.NextPenaltyMode ();
+//		PlayManager.instance.RememeberDoors ();
 
 	}
 
