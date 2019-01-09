@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour {
 
@@ -12,8 +13,14 @@ public class CharacterStats : MonoBehaviour {
 
 		if (player) {
 			PenaltyManager.instance.UpdatePlayerStats ();
+
 			FindStat ("Lives").ChangeValue ((float)PlayManager.instance.playerLives);
+			PlayManager.instance.livesIndicator = GameObject.Find ("LivesIndicator").GetComponent<Text> ();
+			PlayManager.instance.livesIndicator.text = "Lives: " + PlayManager.instance.playerLives.ToString ();
 		}
+		PlayManager.instance.penaltyIndicator = GameObject.Find ("PenaltyIndicator").GetComponent<Text> ();
+		PenaltyManager.instance.NextPenaltyMode ();
+
 	}
 
 	public Stat FindStat(string _statName){

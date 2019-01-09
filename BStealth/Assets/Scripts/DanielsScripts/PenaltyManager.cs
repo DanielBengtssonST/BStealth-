@@ -21,7 +21,7 @@ public class PenaltyManager : MonoBehaviour {
 
 	public bool Randomize = true;
 	CharacterStats playerStats;
-	string[][] penaltyNamesList = new string[6][];
+	string[][] penaltyNamesList = new string[7][];
 	[SerializeField] string[] curPenaltyNames;
 	[SerializeField] int curPenaltyMode = 0;
 
@@ -33,12 +33,12 @@ public class PenaltyManager : MonoBehaviour {
 	void Start(){
 		
 		// [0] = Detection. [][1] = Hit. [][2] = no HP. [][3] = on Restart. [][4] = no life, [][5] = Timer Run Out.
-		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","GameOver","Restart"};		//Classic
-		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty","Restart"};	//Modern
-		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","GameOver", "Restart"}; 	//Old arcade
-		penaltyNamesList[3] = new string[]{"NoPenalty","Restart","NoPenalty","NoPenalty","NoPenalty","Restart"};	//Meatboy 
-		penaltyNamesList[4] = new string[]{"NoPenalty","TakeDamage","GameOver","GameOver","GameOver","GameOver"};	//Hardcore
-		penaltyNamesList[5] = new string[]{"Restart","NoPenalty","NoPenalty","LoseLife","NoPenalty","Restart"};		//Instant Restart On Detection
+		penaltyNamesList[0] = new string[]{"NoPenalty","TakeDamage","Restart","LoseLife","GameOver","Restart", "Classic"};			//Classic
+		penaltyNamesList[1] = new string[]{"NoPenalty","TakeDamage","Restart","NoPenalty","NoPenalty","Restart", "Modern"};			//Modern
+		penaltyNamesList[2] = new string[]{"NoPenalty","Restart","NoPenalty","LoseLife","GameOver", "Restart", "Arcade"}; 			//Old arcade
+		penaltyNamesList[3] = new string[]{"NoPenalty","Restart","NoPenalty","NoPenalty","NoPenalty","Restart","Meatboy"};			//Meatboy 
+		penaltyNamesList[4] = new string[]{"NoPenalty","TakeDamage","GameOver","GameOver","GameOver","GameOver","Hardcore"};		//Hardcore
+		penaltyNamesList[5] = new string[]{"Restart","NoPenalty","NoPenalty","LoseLife","NoPenalty","Restart", "Instant Death"};	//Instant Restart On Detection
 
 		curPenaltyMode = curPenaltyModes [penaltyModeIndex];
 		curPenaltyNames = penaltyNamesList [curPenaltyMode];
@@ -54,13 +54,16 @@ public class PenaltyManager : MonoBehaviour {
 	}
 	public void NextPenaltyMode(){
 
-		penaltyModeIndex++;
-		if (penaltyModeIndex >= curPenaltyModes.Count) {
-			penaltyModeIndex = 0;
-		}
+		penaltyModeIndex = (PlayManager.instance.GetCurrentSceneIndex () - 1);
 
+//		penaltyModeIndex++;
+//		if (penaltyModeIndex >= curPenaltyModes.Count) {
+//			penaltyModeIndex = 0;
+//		}
+//
 		curPenaltyMode = curPenaltyModes [penaltyModeIndex];
 		curPenaltyNames = penaltyNamesList [curPenaltyMode];
+		PlayManager.instance.penaltyIndicator.text = penaltyNamesList [curPenaltyMode] [6];
 	}
 
 	void PenaltyRandomizer(){
@@ -74,6 +77,10 @@ public class PenaltyManager : MonoBehaviour {
 			curPenaltyModes.Add(penaltyModesToRandomize[_random]);
 			penaltyModesToRandomize.RemoveAt (_random);
 		}
+
+		//for LVL 3 Hardcore Edition
+		curPenaltyModes.Add(2);
+
 	}
 		
 	// List of penalties

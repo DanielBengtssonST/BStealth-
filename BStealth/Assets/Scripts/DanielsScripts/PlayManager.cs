@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//using UnityEngine.UI;
+using UnityEngine.UI;
 
 //Pause & Scene reload
 public class PlayManager : MonoBehaviour {
@@ -27,6 +27,7 @@ public class PlayManager : MonoBehaviour {
 	[SerializeField] int deathCounter;
 	public int playerLives;
 //	[SerializeField] Text playTime;
+	public Text livesIndicator, penaltyIndicator;
 
 	void Start(){
 
@@ -47,6 +48,8 @@ public class PlayManager : MonoBehaviour {
 		if (paused && Input.GetKeyDown (KeyCode.M)) {
 
 			LoadScene (0);
+			PauseGame (false);
+			playerLives = 5;
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			Camera.main.GetComponent<CameraBrain> ().lookAround = !Camera.main.GetComponent<CameraBrain> ().lookAround;
@@ -74,6 +77,10 @@ public class PlayManager : MonoBehaviour {
 	public void LoadScene(string _name){
 
 		SceneManager.LoadScene (_name);
+	}
+	public int GetCurrentSceneIndex(){
+
+		return SceneManager.GetActiveScene ().buildIndex;
 	}
 
 	public void PauseGame(bool _b){
