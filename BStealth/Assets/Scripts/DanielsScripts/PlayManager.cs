@@ -49,7 +49,7 @@ public class PlayManager : MonoBehaviour {
 
 			LoadScene (0);
 			PauseGame (false);
-			playerLives = 5;
+			playerLives = (int)GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();		
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			Camera.main.GetComponent<CameraBrain> ().lookAround = !Camera.main.GetComponent<CameraBrain> ().lookAround;

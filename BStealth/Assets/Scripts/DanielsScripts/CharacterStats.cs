@@ -13,8 +13,8 @@ public class CharacterStats : MonoBehaviour {
 
 		if (player) {
 			PenaltyManager.instance.UpdatePlayerStats ();
-
 			FindStat ("Lives").ChangeValue ((float)PlayManager.instance.playerLives);
+
 			PlayManager.instance.livesIndicator = GameObject.Find ("LivesIndicator").GetComponent<Text> ();
 			PlayManager.instance.livesIndicator.text = "Lives: " + PlayManager.instance.playerLives.ToString ();
 		}
