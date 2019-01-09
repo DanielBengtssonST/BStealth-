@@ -64,6 +64,21 @@ public class PenaltyManager : MonoBehaviour {
 		curPenaltyMode = curPenaltyModes [penaltyModeIndex];
 		curPenaltyNames = penaltyNamesList [curPenaltyMode];
 		PlayManager.instance.penaltyIndicator.text = penaltyNamesList [curPenaltyMode] [6];
+
+		if (penaltyNamesList [curPenaltyMode] [6] == "Arcade" || penaltyNamesList [curPenaltyMode] [6] == "Meatboy" || penaltyNamesList [curPenaltyMode] [6] == "Instant Death") {
+
+			GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Canvas> ().gameObject.SetActive (false);
+		} else {
+			GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Canvas> ().gameObject.SetActive (true);
+		}
+
+		if (penaltyNamesList [curPenaltyMode] [6] == "Classic" || penaltyNamesList [curPenaltyMode] [6] == "Arcade") {
+
+			PlayManager.instance.livesIndicator.gameObject.SetActive (true);
+		} else {
+			PlayManager.instance.livesIndicator.gameObject.SetActive (false);
+		}
+
 	}
 
 	void PenaltyRandomizer(){
