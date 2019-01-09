@@ -14,6 +14,8 @@ public class ExitSign : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+			PlayManager.instance.playerLives = (int)other.gameObject.GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();
+//			PlayManager.instance.unlockedDoors.Clear ();
 //			PenaltyManager.instance.NextPenaltyMode ();
             if (switchUsingID)
             {
