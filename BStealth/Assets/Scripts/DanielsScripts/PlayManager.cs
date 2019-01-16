@@ -57,7 +57,9 @@ public class PlayManager : MonoBehaviour
         }
         if (paused && Input.GetKeyDown(KeyCode.M))
         {
-
+            GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().StopAllCoroutines();
+            Destroy(GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().checkpointUI);
+            Destroy(GameObject.FindGameObjectWithTag("Checkpoint Handler"));
             LoadScene(0);
             PauseGame(false);
             playerLives = (int)GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>().FindStat("Lives").getMaxValue();
