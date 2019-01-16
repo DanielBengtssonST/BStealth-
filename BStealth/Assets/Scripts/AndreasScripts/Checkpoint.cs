@@ -6,7 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     public Vector3 checkpointPosition = new Vector3();
     public bool useGameobjectPosition = false;
-
+  
 
     private void Start()
     {

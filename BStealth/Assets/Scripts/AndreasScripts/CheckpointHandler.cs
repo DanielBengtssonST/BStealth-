@@ -54,7 +54,7 @@ public class CheckpointHandler : MonoBehaviour
 
     public void UpdateCheckpoint(Vector3 checkpoint)
     {
-        if (checkpoint != respawnPoint)
+        if (checkpointUI == null)
         {
             keys = tempkeys;
             respawnPoint = checkpoint;

@@ -89,7 +89,6 @@ public class PlayManager : MonoBehaviour
 
     public void ReloadScene()
     {
-
         GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().StopAllCoroutines();
         Destroy(GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().checkpointUI);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
