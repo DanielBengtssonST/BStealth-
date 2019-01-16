@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    
+    public Vector3 checkpointPosition = new Vector3();
+    public bool useGameobjectPosition = false;
+
+
     private void Start()
     {
         GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().Respawn();
@@ -13,7 +16,14 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().UpdateCheckpoint(transform.position);
+            if (useGameobjectPosition)
+            {
+                GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().UpdateCheckpoint(transform.position);
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().UpdateCheckpoint(checkpointPosition);
+            }
         }
     }
 }
