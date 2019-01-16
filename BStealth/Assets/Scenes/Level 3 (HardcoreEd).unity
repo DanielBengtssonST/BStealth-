@@ -7390,7 +7390,6 @@ GameObject:
   - component: {fileID: 844823671}
   - component: {fileID: 844823670}
   - component: {fileID: 844823669}
-  - component: {fileID: 844823668}
   - component: {fileID: 844823667}
   m_Layer: 0
   m_Name: Enemy_Camera 3
@@ -7436,24 +7435,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &844823668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114113176029039234, guid: 841184c8a2dee7349bace203dd92040b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 844823665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6074cf47a435b7c41877516a3b8263f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wayPoints: []
-  foundPlayer: 0
-  normalSpeed: 0
-  chaseSpeed: 0
-  normal: {fileID: 0}
-  chasing: {fileID: 0}
 --- !u!114 &844823669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14242,7 +14223,6 @@ GameObject:
   - component: {fileID: 1448225416}
   - component: {fileID: 1448225415}
   - component: {fileID: 1448225413}
-  - component: {fileID: 1448225420}
   - component: {fileID: 1448225419}
   m_Layer: 0
   m_Name: Enemy_Camera 2
@@ -14377,23 +14357,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1448225420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1448225412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6074cf47a435b7c41877516a3b8263f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wayPoints: []
-  foundPlayer: 0
-  normalSpeed: 0
-  chaseSpeed: 0
-  normal: {fileID: 0}
-  chasing: {fileID: 0}
 --- !u!1 &1452291437
 GameObject:
   m_ObjectHideFlags: 0
