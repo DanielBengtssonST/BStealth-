@@ -5,104 +5,125 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 //Pause & Scene reload
-public class PlayManager : MonoBehaviour {
+public class PlayManager : MonoBehaviour
+{
 
-	public static PlayManager instance;
-	void Awake(){
+    public static PlayManager instance;
+    void Awake()
+    {
 
-		if (instance == null) {
+        if (instance == null)
+        {
 
-			instance = this as PlayManager;
-		} else {
-			Destroy (gameObject);
-		}
-		DontDestroyOnLoad (this);
+            instance = this as PlayManager;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(this);
 
-		playerLives = (int)GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();
-	}
+        playerLives = (int)GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>().FindStat("Lives").getMaxValue();
+    }
 
 
-//	public List<GameObject> unlockedDoors;
+    //	public List<GameObject> unlockedDoors;
 
-	bool paused;
-	[SerializeField] int deathCounter;
-	public int playerLives;
-//	[SerializeField] Text playTime;
-	public Text livesIndicator, penaltyIndicator;
+    bool paused;
+    [SerializeField] int deathCounter;
+    public int playerLives;
+    //	[SerializeField] Text playTime;
+    public Text livesIndicator, penaltyIndicator;
 
-	void Start(){
+    void Start()
+    {
 
-	}
+    }
 
-	void Update(){
+    void Update()
+    {
 
-//		playTime.text = Time.time.ToString("F2");
+        //		playTime.text = Time.time.ToString("F2");
 
-		if (Input.GetKeyDown (KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
 
-			PauseGame (!paused);
-		}
-		if (paused && Input.GetKeyDown (KeyCode.R)) {
+            PauseGame(!paused);
+        }
+        if (paused && Input.GetKeyDown(KeyCode.R))
+        {
 
-			ReloadScene ();
-		}
-		if (paused && Input.GetKeyDown (KeyCode.M)) {
+            ReloadScene();
+        }
+        if (paused && Input.GetKeyDown(KeyCode.M))
+        {
 
-			LoadScene (0);
-			PauseGame (false);
-			playerLives = (int)GameObject.FindGameObjectWithTag ("Player").GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();	
-//			unlockedDoors.Clear ();
-		}
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			Camera.main.GetComponent<CameraBrain> ().lookAround = !Camera.main.GetComponent<CameraBrain> ().lookAround;
-		}
-	}
+            LoadScene(0);
+            PauseGame(false);
+            playerLives = (int)GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>().FindStat("Lives").getMaxValue();
+            //			unlockedDoors.Clear ();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Camera.main.GetComponent<CameraBrain>().lookAround = !Camera.main.GetComponent<CameraBrain>().lookAround;
+        }
+    }
 
-	public void PlayerDeath(){
+    public void PlayerDeath()
+    {
+        Time.timeScale = 0.3f;
+        Invoke("ReloadScene", 0.25f);
+        deathCounter++;
+        Debug.Log("You have died " + deathCounter + " times. Stay Determinied!");
+    }
 
-		Time.timeScale = 0.3f;
-		Invoke ("ReloadScene", 0.25f);
-		deathCounter++;
-		Debug.Log ("You have died " + deathCounter + " times. Stay Determinied!");
-	}
+    //	public void RememeberDoors(){
+    //
+    //		for (int i = 0; i < unlockedDoors.Count; i++) {
+    //
+    //			unlockedDoors [i].gameObject.SetActive (false);
+    //		}
+    //	}
 
-//	public void RememeberDoors(){
-//
-//		for (int i = 0; i < unlockedDoors.Count; i++) {
-//
-//			unlockedDoors [i].gameObject.SetActive (false);
-//		}
-//	}
+    public void ReloadScene()
+    {
 
-	public void ReloadScene(){
+        GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().StopAllCoroutines();
+        Destroy(GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().checkpointUI);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        PauseGame(false);
+    }
 
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
-		PauseGame (false);
-	}
+    public void LoadScene(int _index)
+    {
 
-	public void LoadScene(int _index){
+        SceneManager.LoadScene(_index);
+    }
+    public void LoadScene(string _name)
+    {
 
-		SceneManager.LoadScene (_index);
-	}
-	public void LoadScene(string _name){
+        SceneManager.LoadScene(_name);
+    }
+    public int GetCurrentSceneIndex()
+    {
 
-		SceneManager.LoadScene (_name);
-	}
-	public int GetCurrentSceneIndex(){
+        return SceneManager.GetActiveScene().buildIndex;
+    }
 
-		return SceneManager.GetActiveScene ().buildIndex;
-	}
+    public void PauseGame(bool _b)
+    {
 
-	public void PauseGame(bool _b){
+        paused = _b;
+        if (paused)
+        {
 
-		paused = _b;
-		if (paused) {
+            Time.timeScale = 0;
 
-			Time.timeScale = 0;
+        }
+        else
+        {
 
-		} else {
-
-			Time.timeScale = 1;
-		}
-	}
+            Time.timeScale = 1;
+        }
+    }
 }
