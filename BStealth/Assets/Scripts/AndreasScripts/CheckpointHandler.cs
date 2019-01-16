@@ -15,7 +15,7 @@ public class CheckpointHandler : MonoBehaviour
     [SerializeField]
     float fadeDelay = 0;
 
-    Vector3 respawnPoint = new Vector3(0, 0, 0);
+    Vector3 respawnPoint = new Vector3(0, 0.5f, 0);
 
     [HideInInspector]
     public List<string> tempkeys = new List<string>();
