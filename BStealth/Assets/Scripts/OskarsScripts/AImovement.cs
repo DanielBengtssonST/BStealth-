@@ -17,6 +17,8 @@ public class AImovement : MonoBehaviour
     [SerializeField]
     float chaseSpeed = 8;
 
+	[SerializeField] Material normal, chasing;
+
     // Use this for initialization
     void Start()
     {
@@ -34,6 +36,16 @@ public class AImovement : MonoBehaviour
         else if (foundPlayer == true)
             GoToPlayer();
     }
+
+	public void FoundPlayer(bool _b){
+
+		foundPlayer = _b;
+		if (_b) {
+			GetComponent<MeshRenderer> ().material = chasing;
+		} else {
+			GetComponent<MeshRenderer> ().material = normal;
+		}
+	}
 
     void GoToNextWayPoint()
     {

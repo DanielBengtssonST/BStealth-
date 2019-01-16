@@ -30,6 +30,9 @@ public class EnemySight : MonoBehaviour
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
 
+
+
+
     private void Start()
     {
         viewMesh = new Mesh();
@@ -108,20 +111,22 @@ public class EnemySight : MonoBehaviour
     {
         if (GetComponent<AImovement>())
         {
-            GetComponent<AImovement>().foundPlayer = true;
+			GetComponent<AImovement> ().FoundPlayer (true);
         }
         for (int i = 0; i < enemyGroup.Length; i++)
         {
-            enemyGroup[i].foundPlayer = true;
+			enemyGroup [i].FoundPlayer (true);
         }
-        yield return new WaitForSeconds(chaseTime);
-        if (GetComponent<AImovement>())
+        
+		yield return new WaitForSeconds(chaseTime);
+        
+		if (GetComponent<AImovement>())
         {
-            GetComponent<AImovement>().foundPlayer = false;
+			GetComponent<AImovement> ().FoundPlayer (false);
         }
         for (int i = 0; i < enemyGroup.Length; i++)
         {
-            enemyGroup[i].foundPlayer = false;
+			enemyGroup [i].FoundPlayer (false);
         }
     }
 
