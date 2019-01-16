@@ -253,11 +253,13 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
+  enemyGroup: []
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
   findPlayerDelay: 0.2
   shotDelay: 1
+  canShoot: 1
   bulletPrefab: {fileID: 1653128700237598, guid: 85677db5d280f8a4bb2593a6c40a349a,
     type: 2}
   viewMeshFilter: {fileID: 33349481000110742}
@@ -280,11 +282,13 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
+  enemyGroup: []
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
   findPlayerDelay: 0.2
   shotDelay: 1
+  canShoot: 1
   bulletPrefab: {fileID: 1653128700237598, guid: 85677db5d280f8a4bb2593a6c40a349a,
     type: 2}
   viewMeshFilter: {fileID: 33054918159586250}
@@ -311,6 +315,8 @@ MonoBehaviour:
   foundPlayer: 0
   normalSpeed: 3.5
   chaseSpeed: 8
+  normal: {fileID: 2100000, guid: 3734be4f90be7194f9aafb8546b1e377, type: 2}
+  chasing: {fileID: 2100000, guid: 3ccf456e511b50c45b969419ef6958fe, type: 2}
 --- !u!136 &136656017675410392
 CapsuleCollider:
   m_ObjectHideFlags: 1
