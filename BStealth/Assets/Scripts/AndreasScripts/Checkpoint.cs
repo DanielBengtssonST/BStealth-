@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-
-    [SerializeField]
-    int checkpointID = 0;
+    
     private void Start()
     {
         GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().Respawn();
