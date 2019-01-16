@@ -14,7 +14,7 @@ public class KeyScript : MonoBehaviour
             if (door != null)
             {
                 door.aquiredKey = true;
-                GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().keys.Add(gameObject.name);
+                GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().tempkeys.Add(gameObject.name);
             }
             Destroy(gameObject);
         }
