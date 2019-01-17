@@ -34357,7 +34357,6 @@ GameObject:
   - component: {fileID: 1651259823}
   - component: {fileID: 1651259822}
   - component: {fileID: 1651259821}
-  - component: {fileID: 1651259827}
   m_Layer: 0
   m_Name: Enemy_Camera 1
   m_TagString: Untagged
@@ -34471,27 +34470,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1651259820}
   m_Mesh: {fileID: 4300002, guid: 8a5c3247883ed46449c3131f71998bc1, type: 3}
---- !u!195 &1651259827
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1651259820}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5000001
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.9999999
-  m_BaseOffset: 0.99999994
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!43 &1658736063
 Mesh:
   m_ObjectHideFlags: 0
