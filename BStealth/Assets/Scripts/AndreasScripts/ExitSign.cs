@@ -15,8 +15,9 @@ public class ExitSign : MonoBehaviour
         if (other.tag == "Player")
         {
 			PlayManager.instance.playerLives = (int)other.gameObject.GetComponent<CharacterStats> ().FindStat ("Lives").getMaxValue ();
-//			PlayManager.instance.unlockedDoors.Clear ();
-//			PenaltyManager.instance.NextPenaltyMode ();
+            GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().StopAllCoroutines();
+            Destroy(GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().checkpointUI);
+            Destroy(GameObject.FindGameObjectWithTag("Checkpoint Handler"));
             if (switchUsingID)
             {
                 SceneManager.LoadScene(nextSceneID);

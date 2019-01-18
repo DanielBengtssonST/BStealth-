@@ -91,6 +91,7 @@ public class PlayManager : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().StopAllCoroutines();
         Destroy(GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().checkpointUI);
+        GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().ResetTempKeys();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PauseGame(false);
     }

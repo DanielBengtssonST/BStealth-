@@ -2,41 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnglePingPong : MonoBehaviour {
+public class AnglePingPong : MonoBehaviour
+{
 
-	public bool PingPongActive = true;
-	public float angleA, angleB, startAngle;	//The two stop and start angles to rotate between. 
-	[Range(0,45)] public float rotationSpeed; 	//Recommended Range for script stability. (Sometimes skips wait delay when rotation speed is too high)
-	public float waitDelay;						//Delay how long to wait before rotating back.
-	float curAngle, t;
-		
-	void Start(){
+    public bool PingPongActive = true;
+    public float angleA, angleB, startAngle;    //The two stop and start angles to rotate between. 
+    [Range(0, 45)] public float rotationSpeed;  //Recommended Range for script stability. (Sometimes skips wait delay when rotation speed is too high)
+    public float waitDelay;                     //Delay how long to wait before rotating back.
+    float curAngle, t;
 
-		t = Mathf.Clamp (startAngle - angleA, 0, angleB - angleA);
-	}
+    void Start()
+    {
 
-	// Update is called once per frame
-	void Update () {
+        t = Mathf.Clamp(startAngle - angleA, 0, angleB - angleA);
+    }
 
-		if (PingPongActive) {
+    // Update is called once per frame
+    void Update()
+    {
 
-			if (t > (angleB - angleA)*2) {
-				t = 0;
-			}
+        if (PingPongActive)
+        {
 
-			curAngle = (angleA + Mathf.PingPong (t += Time.deltaTime * rotationSpeed, angleB - angleA));
+            if (t > (angleB - angleA) * 2)
+            {
+                t = 0;
+            }
 
-			if (Mathf.Round(curAngle)-0.75f <= angleA || Mathf.Round(curAngle)+0.75f >= angleB) {
+            curAngle = (angleA + Mathf.PingPong(t += Time.deltaTime * rotationSpeed, angleB - angleA));
 
-				PingPongActive = false;
-				Invoke ("LookAgain", waitDelay);
-			}
-			gameObject.transform.rotation = Quaternion.Euler (0, curAngle, 0);
-		}
-	}
-	void LookAgain(){
+            if (Mathf.Round(curAngle) - 0.75f <= angleA || Mathf.Round(curAngle) + 0.75f >= angleB)
+            {
 
-		PingPongActive = true;
-		t++;
-	}
+                PingPongActive = false;
+                Invoke("LookAgain", waitDelay);
+            }
+            gameObject.transform.rotation = Quaternion.Euler(0, curAngle, 0);
+        }
+    }
+    void LookAgain()
+    {
+
+        PingPongActive = true;
+        t++;
+    }
+
+
+
 }

@@ -36,8 +36,17 @@ public class CheckpointHandler : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public void ResetTempKeys()
+    {
+        tempkeys.Clear();
+        foreach (string key in keys)
+        {
+            tempkeys.Add(key);
+        }
+    }
     public void Respawn()
     {
+        tempkeys.Clear();
         GameObject.FindGameObjectWithTag("Player").transform.position = respawnPoint;
         if (keys.Count > 0)
         {
@@ -56,7 +65,13 @@ public class CheckpointHandler : MonoBehaviour
     {
         if (checkpointUI == null)
         {
-            keys = tempkeys;
+            foreach (string tempkey in tempkeys)
+            {
+                if (!keys.Contains(tempkey))
+                {
+                    keys.Add(tempkey);
+                }
+            }
             respawnPoint = checkpoint;
             ShowUI();
         }
