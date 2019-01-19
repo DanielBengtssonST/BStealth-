@@ -11,7 +11,7 @@ public class CameraBlink : MonoBehaviour
 
     private void Update()
     {
-        blinkProgress.value += 1 * Time.timeScale;
+		blinkProgress.value += 32*Time.deltaTime*Time.timeScale;
         if (blinkProgress.value == blinkProgress.maxValue)
         {
             blinkProgress.value = 0;
