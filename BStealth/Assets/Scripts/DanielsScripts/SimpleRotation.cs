@@ -12,7 +12,7 @@ public class SimpleRotation : MonoBehaviour {
 	
 		if (rotating){
 
-			transform.Rotate ((new Vector3(XRotation,YRotation,ZRotation)*Time.timeScale));
+			transform.Rotate ((new Vector3(XRotation,YRotation,ZRotation)*32*Time.deltaTime*Time.timeScale));
 		}
 	}
 }

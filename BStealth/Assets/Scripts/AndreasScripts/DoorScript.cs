@@ -54,12 +54,10 @@ public class DoorScript : MonoBehaviour
         }
         if (unlocking)
         {
-			unlockProgress.value += 1*Time.timeScale;
+			unlockProgress.value += 32*Time.deltaTime*Time.timeScale;
             if (unlockProgress.value == unlockProgress.maxValue)
             {
-//				PlayManager.instance.unlockedDoors.Add (gameObject);
 				gameObject.SetActive (false);
-//                Destroy(gameObject);
             }
         }
         else
@@ -67,5 +65,4 @@ public class DoorScript : MonoBehaviour
             unlockProgress.value = 0;
         }
     }
-
 }
