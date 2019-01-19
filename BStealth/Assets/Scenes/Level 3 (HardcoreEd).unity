@@ -7407,12 +7407,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9142509765f2341aba2d0ba0e091f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onOff: 1
+  aaa: 68
+  color: {r: 0, g: 1, b: 0, a: 1}
+  deltaTime: 0
+  averageDelta: 0
+  numFrames: 0
   PingPongActive: 1
   angleA: 225
   angleB: 325
   startAngle: 255
   rotationSpeed: 20
   waitDelay: 2.5
+  curAngle: 0
+  t: 0
 --- !u!114 &844823670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7434,7 +7442,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   enemyGroup:
-  - {fileID: 1929820895}
+  - {fileID: 2135978085}
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
@@ -27571,6 +27579,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44a6225771e8fb448a501b8086e2630, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &2135978085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114295959060212258, guid: a44a6225771e8fb448a501b8086e2630,
+    type: 2}
+  m_PrefabInternal: {fileID: 2135978084}
+  m_Script: {fileID: 11500000, guid: 6074cf47a435b7c41877516a3b8263f5, type: 3}
 --- !u!1 &2137984142
 GameObject:
   m_ObjectHideFlags: 0
