@@ -55,6 +55,7 @@ public class CheckpointHandler : MonoBehaviour
                 if (GameObject.Find(key))
                 {
                     GameObject.Find(key).GetComponent<KeyScript>().door.aquiredKey = true;
+                    GameObject.Find(key).GetComponent<KeyScript>().keyIndicator.SetActive(true);
                     Destroy(GameObject.Find(key));
                 }
             }

@@ -6,6 +6,7 @@ public class KeyScript : MonoBehaviour
 {
 
     public DoorScript door;
+    public GameObject keyIndicator;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +16,7 @@ public class KeyScript : MonoBehaviour
             {
                 door.aquiredKey = true;
                 GameObject.FindGameObjectWithTag("Checkpoint Handler").GetComponent<CheckpointHandler>().tempkeys.Add(gameObject.name);
+                keyIndicator.SetActive(true);
             }
             Destroy(gameObject);
         }
