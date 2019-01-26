@@ -4221,7 +4221,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh77992
+  m_Name: pb_Mesh15952
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -26972,7 +26972,7 @@ Prefab:
     - target: {fileID: 114185119097585672, guid: a44a6225771e8fb448a501b8086e2630,
         type: 2}
       propertyPath: viewRadius
-      value: 7.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 4267398867860456, guid: a44a6225771e8fb448a501b8086e2630, type: 2}
       propertyPath: m_LocalScale.x
